@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "User")
 public class UserModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "email")
     private String email;
@@ -87,12 +87,12 @@ public class UserModel {
         this.userRole = userRole;
     }
 
+    public Long getId() {
+        return id;
     }
 
-     
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    
-
-    
-
-    
+}

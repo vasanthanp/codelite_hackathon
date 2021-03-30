@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Admin")
 public class AdminModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "email")
     private String email;
@@ -33,9 +35,8 @@ public class AdminModel {
     public AdminModel() {
     }
 
-    public AdminModel(Long id, String email, String password, String mobileNumber, String sellerName, String userRole,
+    public AdminModel(String email, String password, String mobileNumber, String sellerName, String userRole,
             String companyName, String companyImageURL, String companyAddress, int earnings) {
-        this.id = id;
         this.email = email;
         this.password = password;
         this.mobileNumber = mobileNumber;
