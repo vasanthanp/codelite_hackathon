@@ -11,7 +11,7 @@ const Login = () => {
     let val = {
       email ,
       pass,
-      user : toggle
+      toggle
     }
     apiService.login(val);
   } 
