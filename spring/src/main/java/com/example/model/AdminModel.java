@@ -29,7 +29,7 @@ public class AdminModel {
     private String companyImageURL;
     @Column(name = "companyAddress")
     private String companyAddress;
-    @Column(name = "earnings")
+    @Column(name = "earnings", columnDefinition = "integer default 0")
     private int earnings;
 
     public AdminModel() {
