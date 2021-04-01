@@ -1,0 +1,37 @@
+.super-admin {
+  height: 100vh;
+}
+#superAdminLoginBox {
+  background: #e6e6e6;
+  border-radius: 12px;
+  max-width: 600px !important;
+}
+#superAdminLoginBox h1 {
+    font-size: 40px;
+    line-height: 40px;
+}
+#superAdminForm input::placeholder{
+    color: #000;
+}
+#superAdminForm input{
+    height: 60px;
+    font-size: 20px;
+    line-height: 26px;
+    background: #C4C4C4;
+    border-radius: 12px;
+}
+#superAdminForm input:focus,  #submitbutton:focus {
+    outline: none;
+}
+#submitbutton{
+    border: 0;
+    background-color: #FFA500;
+    height: 45px;
+    border-radius: 12px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+#loginLink{
+    color: rgb(27, 163, 253)  !important;
+}

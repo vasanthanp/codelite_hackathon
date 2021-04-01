@@ -1,0 +1,64 @@
+.login {
+  height: 100vh;
+}
+#LoginBox {
+  background: #e6e6e6;
+  border-radius: 12px;
+  max-width: 600px !important;
+}
+.signupLink{
+  color: rgb(27, 163, 253) !important;
+}
+.login-members{
+  cursor: pointer;
+}
+.login-members .member h1{
+  font-size: 30px !important;
+}
+.shadow {
+  background: #f2f2f2;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 0px 10px;
+}
+.shadow1 {
+  background: #f2f2f2;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 10px 0px;
+}
+#LoginBox h1 {
+  font-size: 40px;
+  line-height: 40px;
+}
+#LoginForm input::placeholder {
+  color: #000;
+}
+#LoginForm input {
+  height: 60px;
+  font-size: 20px;
+  line-height: 26px;
+  background: #c4c4c4;
+  border-radius: 12px;
+}
+#LoginForm input:focus,
+#submitbutton:focus {
+  outline: none;
+}
+#submitbutton {
+  border: 0;
+  background-color: #ffa500;
+  height: 45px;
+  border-radius: 12px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+@media only screen and (max-width: 500px) {
+  #submitbutton {
+    height: 35px !important;
+    font-size: 25px !important;
+  }
+  #LoginForm input{
+    height: 30px;
+    font-size: 16px;
+  }
+}
