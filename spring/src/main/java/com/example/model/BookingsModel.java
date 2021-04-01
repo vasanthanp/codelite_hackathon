@@ -91,4 +91,12 @@ public class BookingsModel {
         this.totalPrice = totalPrice;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
 }
