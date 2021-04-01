@@ -1,0 +1,35 @@
+.adminEditBox {
+  height: 100vh;
+}
+#AdminLoginBox {
+  background: #e6e6e6;
+  border-radius: 12px;
+  max-width: 600px !important;
+}
+#AdminLoginBox h1 {
+  font-size: 40px;
+  line-height: 40px;
+}
+#AdminForm input::placeholder {
+  color: #000;
+}
+#AdminForm input {
+  height: 60px;
+  font-size: 18px;
+  line-height: 26px;
+  background: #c4c4c4;
+  border-radius: 12px;
+}
+#AdminForm input:focus,
+#submitbutton:focus {
+  outline: none;
+}
+#profileEditButton {
+  border: 0;
+  background-color: #ffa500;
+  height: 45px;
+  border-radius: 12px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
