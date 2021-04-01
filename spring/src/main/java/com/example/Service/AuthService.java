@@ -2,21 +2,26 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.config.Passwordconfig;
 import com.example.model.AdminModel;
 import com.example.model.LoginModel;
 import com.example.model.UserModel;
 import com.example.repository.AdminRepository;
 import com.example.repository.UserRepository;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+
 public class AuthService {
     @Autowired
     UserRepository userRepository;
     @Autowired
     AdminRepository adminRepository;
+    @Autowired
+    Passwordconfig passwordconfig;
 
     // ===============SIGN-UP==============================
     public UserModel setCurrentUser(UserModel data) {
@@ -30,12 +35,18 @@ public class AuthService {
     }
 
     public UserModel saveUser(UserModel data) {
+
         UserModel currentUser = setCurrentUser(data);
         if (currentUser == null) {
+            String hash = passwordconfig.hashPassword(data.getPassword());
+            System.out.println(hash+"....");
+            data.setPassword(hash);
             return userRepository.save(data);
         }
         return null;
     }
+
+    
 
     public AdminModel setCurrentAdmin(AdminModel data) {
         List<AdminModel> admins = adminRepository.findAll();
@@ -60,7 +71,7 @@ public class AuthService {
     public boolean isUserPresent(LoginModel data) {
         List<UserModel> users = userRepository.findAll();
         for (UserModel user : users) {
-            if (user.getEmail().equals(data.getEmail()) && user.getPassword().equals(data.getPassword()))
+            if (user.getEmail().equals(data.getEmail()) && passwordconfig.checkPass(data.getPassword(), user.getPassword()))
                 return true;
         }
         return false;
@@ -68,8 +79,9 @@ public class AuthService {
 
     public boolean isAdminPresent(LoginModel data) {
         List<AdminModel> admins = adminRepository.findAll();
+        
         for (AdminModel admin : admins) {
-            if (admin.getEmail().equals(data.getEmail()) && admin.getPassword().equals(data.getPassword()))
+            if (admin.getEmail().equals(data.getEmail()) && passwordconfig.checkPass(data.getPassword(), admin.getPassword()))
                 return true;
         }
         return false;
