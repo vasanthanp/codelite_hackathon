@@ -5,9 +5,11 @@ import java.util.List;
 
 import com.example.model.AdminModel;
 import com.example.model.BikeModel;
+import com.example.model.BookingsModel;
 import com.example.model.UserModel;
 import com.example.repository.AdminRepository;
 import com.example.repository.BikeRepository;
+import com.example.repository.BookingsRepository;
 import com.example.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class UserService {
 
     @Autowired
     BikeRepository bikeRepository;
+
+    @Autowired
+    BookingsRepository bookingsRepository;
 
     public List<AdminModel> getCompanies() {
         return adminRepository.findAll();
@@ -66,6 +71,35 @@ public class UserService {
         user.setAge(data.getAge());
         user = userRepository.save(data);
         return user;
+    }
+
+    public boolean saveBooking(BookingsModel data) {
+        BikeModel bike = bikeRepository.findById(data.getBikeID()).get();
+        if(!(bike.getStatus().equals("true"))) return false;
+        List<BookingsModel> bookings = bookingsRepository.findAll();
+        for (BookingsModel booking : bookings) {
+            if (booking.getId().equals(data.getId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public BookingsModel createBooking(BookingsModel data) {
+        if(!saveBooking(data)) bookingsRepository.save(data);
+        return null;
+    }
+    
+    public List<BookingsModel> getBookings(UserModel data) {
+        List<BookingsModel> bookings = bookingsRepository.findAll();
+        // List<BookingsModel> userBookings = new ArrayList<>();
+        // for (BookingsModel booking : bookings) {
+        //     if (booking.getUserID().equals(data.getId())) {
+        //         userBookings.add(booking);
+        //     }
+        // }
+        // return userBookings;
+        return bookings;
     }
 
 }

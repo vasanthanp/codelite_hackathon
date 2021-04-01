@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.model.AdminModel;
 import com.example.model.BikeModel;
+import com.example.model.BookingsModel;
 import com.example.model.UserModel;
 import com.example.service.UserService;
 
@@ -39,5 +40,19 @@ public class UserController {
     public UserModel editAdmin(@RequestBody UserModel user) {
         return userService.editUser(user);
     }
+
+    @PostMapping("/user/bookBike")
+    public BookingsModel bookBike(BookingsModel booking) {
+        return userService.createBooking(booking);
+    }
+    
+    @PostMapping("/user/bookings")
+    public List<BookingsModel> userBookings(UserModel user) {
+        return userService.getBookings(user);
+    }
+
+    // public BookingsModel userGetBookings() {
+
+    // }
 
 }

@@ -6,13 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SecondaryTable;
-import javax.persistence.SecondaryTables;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Bike")
-@SecondaryTables({ @SecondaryTable(name = "admin") })
 public class BikeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
