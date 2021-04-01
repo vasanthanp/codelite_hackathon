@@ -51,15 +51,18 @@ public class UserService {
         List<BikeModel> companyBikes = new ArrayList<>();
         for (AdminModel company : companies) {
             for (BikeModel bike : bikes) {
-                if (bike.getAdminID().equals(company.getId() + ""))
+                if (bike.getAdminID().equals(company.getId()))
                     companyBikes.add(bike);
             }
         }
         return companyBikes;
     }
 
-    public BikeModel getBikeDetails(BikeModel bike) {
+    public BikeModel getBikeDetails(BikeModel data) {
+        BikeModel bike = bikeRepository.findById(Long.parseLong(data.getBikeID())).get();
+        System.out.println(bike);
         return bike;
+        // return bikeRepository.findById(Long.parseLong(bike.getBikeID())).get();
     }
 
     public UserModel editUser(UserModel data) {
@@ -92,14 +95,13 @@ public class UserService {
     
     public List<BookingsModel> getBookings(UserModel data) {
         List<BookingsModel> bookings = bookingsRepository.findAll();
-        // List<BookingsModel> userBookings = new ArrayList<>();
-        // for (BookingsModel booking : bookings) {
-        //     if (booking.getUserID().equals(data.getId())) {
-        //         userBookings.add(booking);
-        //     }
-        // }
-        // return userBookings;
-        return bookings;
+        List<BookingsModel> userBookings = new ArrayList<>();
+        for (BookingsModel booking : bookings) {
+            if (booking.getUserID().equals(data.getId())) {
+                userBookings.add(booking);
+            }
+        }
+        return userBookings;
     }
 
 }

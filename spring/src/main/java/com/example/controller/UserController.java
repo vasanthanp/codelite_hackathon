@@ -42,17 +42,13 @@ public class UserController {
     }
 
     @PostMapping("/user/bookBike")
-    public BookingsModel bookBike(BookingsModel booking) {
+    public BookingsModel bookBike(@RequestBody BookingsModel booking) {
         return userService.createBooking(booking);
     }
     
     @PostMapping("/user/bookings")
-    public List<BookingsModel> userBookings(UserModel user) {
+    public List<BookingsModel> userBookings(@RequestBody UserModel user) {
         return userService.getBookings(user);
     }
-
-    // public BookingsModel userGetBookings() {
-
-    // }
 
 }

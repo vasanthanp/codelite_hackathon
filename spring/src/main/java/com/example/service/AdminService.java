@@ -5,8 +5,10 @@ import java.util.List;
 
 import com.example.model.AdminModel;
 import com.example.model.BikeModel;
+import com.example.model.BookingsModel;
 import com.example.repository.AdminRepository;
 import com.example.repository.BikeRepository;
+import com.example.repository.BookingsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +21,13 @@ public class AdminService {
     @Autowired
     BikeRepository bikeRepository;
 
+    @Autowired
+    BookingsRepository bookingsRepository;
+
     public AdminModel getAdmin(String email) {
         List<AdminModel> admins = adminRepository.findAll();
         for (AdminModel admin : admins) {
+
             if (admin.getEmail().equals(email))
                 return admin;
         }
@@ -33,7 +39,7 @@ public class AdminService {
         List<BikeModel> adminBikes = new ArrayList<>();
 
         for (BikeModel bike : bikes) {
-            if (bike.getAdminID().equals(adminId + "")) {
+            if (bike.getAdminID().equals(adminId)) {
                 adminBikes.add(bike);
             }
         }
@@ -45,7 +51,9 @@ public class AdminService {
     }
 
     public List<BikeModel> getAdminBikes(String email) {
-        return getBikes(getAdmin(email).getId());
+        AdminModel admin = getAdmin(email);
+        if(admin != null) return getBikes(admin.getId());
+        return null;
     }
 
     public AdminModel editAdmin(AdminModel data) {
@@ -59,5 +67,18 @@ public class AdminService {
         admin = adminRepository.save(data);
         return admin;
     }
+
+    public List<BookingsModel> getBookings(AdminModel data) {
+        List<BookingsModel> bookings = bookingsRepository.findAll();
+        List<BookingsModel> userBookings = new ArrayList<>();
+        for (BookingsModel booking : bookings) {
+            BikeModel bike = bikeRepository.findById(booking.getBikeID()).get();
+            AdminModel admin = adminRepository.findById(bike.getAdminID()).get();
+            if (admin.getId().equals(data.getId())) {
+                userBookings.add(booking);
+            }
+        }
+        return userBookings;
+    }    
 
 }

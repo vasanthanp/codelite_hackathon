@@ -15,18 +15,6 @@ public class BikeService {
     @Autowired
     private BikeRepository bikeRepository;
 
-    // @Autowired
-    // private AdminRepository adminRepository;
-
-    // public AdminModel getBikeAdmin(BikeModel data) {
-    // List<AdminModel> admins = adminRepository.findAll();
-    // System.out.println(admins);
-    // for (AdminModel admin : admins) {
-    // if (data.getAdminID().equals(admin.getId() + ""))
-    // return admin;
-    // }
-    // return null;
-    // }
     public BikeModel isBikePresent(BikeModel data) {
         List<BikeModel> bikes = bikeRepository.findAll();
         for (BikeModel bike : bikes) {
@@ -48,11 +36,18 @@ public class BikeService {
 
     public BikeModel editBike(BikeModel data) {
         BikeModel bike = bikeRepository.findById(data.getId()).get();
-        bike.setBikeNo(data.getBikeNo());
+
+        if(bike.getAdminID() != null)data.setAdminID(bike.getAdminID());
+        if(bike.getStatus() != null)data.setStatus(bike.getStatus());
+
+        bike.setBikeModel(data.getBikeModel());
         bike.setPrice(data.getPrice());
         bike.setType(data.getType());
-
+        bike.setAdminID(data.getAdminID());
+        bike.setBikeModel(data.getBikeModel());
+        bike.setStatus(data.getStatus());
         bike = bikeRepository.save(data);
+
         return bike;
     }
 

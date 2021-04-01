@@ -17,6 +17,8 @@ public class BookingsModel {
     private Long userID;
     @Column(name="bike_id")
     private Long bikeID;
+    @Column(name="company_name")
+    private String companyName;
     @Column(name="bike_model")
     private String bikeModel;
     @Column(name="rent" , columnDefinition = "integer default 0")

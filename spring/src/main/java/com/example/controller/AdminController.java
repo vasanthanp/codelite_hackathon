@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.model.AdminModel;
 import com.example.model.BikeModel;
+import com.example.model.BookingsModel;
 import com.example.model.LoginModel;
 import com.example.service.AdminService;
 
@@ -32,4 +33,10 @@ public class AdminController {
     public AdminModel editAdmin(@RequestBody AdminModel admin) {
         return adminService.editAdmin(admin);
     }
+
+    @PostMapping("/admin/bookings")
+    public List<BookingsModel> userBookings(@RequestBody AdminModel user) {
+        return adminService.getBookings(user);
+    }
+
 }
