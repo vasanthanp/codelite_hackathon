@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Bike")
-@SecondaryTables({ @SecondaryTable(name = "admin") })
 public class BikeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

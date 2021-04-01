@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import './Usernavbar.css';
 
 export default function UserNavbar() {
+    let Logout = (e)=>{
+        e.preventDefault();
+        localStorage.clear();
+    }
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark " id="userNavbar">
             <Link class="navbar-brand" to="/user/dashboard">Neo Bikes</Link>
@@ -16,16 +20,16 @@ export default function UserNavbar() {
                         <Link class="nav-link" to="/user/dashboard" id="userDashboardLink">Dashboard <span class="sr-only">(current)</span></Link>
                     </li>
                     <li class="nav-item">
-                        <Link class="nav-link" to={`/user/profile/:${123}`} id="userProfileList">Profile</Link>
+                        <Link class="nav-link" to={`/user/profile/${123}`} id="userProfileList">Profile</Link>
                     </li>
                     <li class="nav-item">
-                        <Link class="nav-link" to={`/user/bookings/:${123}`} id="userBookingList">My Booking</Link>
+                        <Link class="nav-link" to={`/user/bookings/${123}`} id="userBookingList">My Booking</Link>
                     </li>
                 </ul>
                 <span class=" my-2 my-lg-0">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" id="userLogoutButton">Logout</a>
+                            <Link class="nav-link" to="/login" id="userLogoutButton"   onClick={()=>localStorage.clear()} >Logout</Link>
                         </li>
                     </ul> 
                 </span>
