@@ -80,5 +80,9 @@ const helperService = {
             throw "Already Email id exist.Try with another email id." ;
         }
     },
+    adminDashboard : ()=>{
+        let email = localStorage.getItem("email");
+        apiService.adminDashboard(email);
+    }
 };
 export default helperService; 

@@ -45,6 +45,16 @@ const apiService = {
                 return res.data;
             })
         )  
+    },
+    adminDashboard : (val)=>{
+        let v  = {"email" : val};
+        console.log(v);
+        axios.post('http://localhost:8080/admin/dashboard', v)
+            .then((res)=>{
+                console.log(res);
+                //return res.data;
+            })
+            .catch(err=>{console.log(err)})
     }
 
 };
