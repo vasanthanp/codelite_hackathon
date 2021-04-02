@@ -1,4 +1,4 @@
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import AdminEditProfile from "./components/AdminSide/AdminEditProfile/AdminEditProfile.component";
 import AdminBooking from "./components/AdminSide/AdminBooking/AdminBooking.component";
 import UserBooking from "./components/UserSide/UserBooking/UserBooking.component";
@@ -35,7 +35,7 @@ const routes = (
     <Route exact path="/user/dashboard" component={UserDashboard} />
     <Route exact path="/user/companyDetail/:compId" component={CompanyDetails} />
     <Route exact path="/user/bikeDetail/:bikeId" component={BikeDetails} />
-    <Route exact path="/user/profile/:userId" component={UserProfile} />
+    <Route exact path="/user/profile" component={UserProfile} />
     <Route exact path="/user/editProfile/:userId" component={UserEditProfile} />
     <Route exact path="/user/bookings/:userId" > <UserBooking /></Route>
 
