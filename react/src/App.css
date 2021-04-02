@@ -1,0 +1,9 @@
+.react-confirm-alert-button-group > button{
+    background-color: rgb(255, 137, 41)  !important;
+    align-items: end !important;
+    position: relative;
+    right: 0px !important;
+}
+.react-confirm-alert-overlay{
+    background-color: rgba(0, 0, 0, 0.753) !important;
+}

@@ -1,22 +1,40 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import apiService from "../../../Services/apiService";
+import config from "../../../Services/config";
+import helperService from "../../../Services/helperService";
 import "./Login.css";
-const Login = () => {
+import { confirmAlert } from 'react-confirm-alert'; // Import alert
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import alert css
+
+function Login(props){
   let [toggle, setToggle] = useState(true);
-  let [email , setEmail] = useState("");
-  let [pass , setPass] = useState("");
-  let Login = (e)=>{
-    e.preventDefault();
-    let val = {
-      email ,
-      pass,
-      toggle
+  const [ login, setLogin] = useState(config.login);
+
+  let validation = ()=>{
+    let t = login;
+    if(t.email==""||t.password==""){
+        throw  "Please enter all the field";
     }
-    apiService.login(val);
+    if(!t.email.includes("@gmail.com")||t.email.replace("@gmail.com","")=="") throw  "Enter valid email id ";
+  }
+  let Login = async(e)=>{
+    e.preventDefault();
+    try{
+        validation();
+        await helperService.login(login,toggle,props);
+    }
+    catch(err){
+        let e = "" + err; 
+        confirmAlert({
+            message: e,
+            buttons: [{label: 'close',}]
+        });
+    }
   } 
   return (
     <div className="container-fluid position-relative login">
+       {helperService.checkLogin()}
       <div className="login-box d-flex align-items-center justify-content-center w-100 h-100">
         <div
           className="col-lg-6 col-md-8 col-sm-8 col-12 h-auto p-0 pb-5 d-flex flex-column align-items-center justify-content-center"
@@ -27,7 +45,7 @@ const Login = () => {
               onClick={() => setToggle(true)}
               className={`member col-6 text-center py-2 h-100 ${!toggle ? "shadow1" : ""}` } id="userTab"
             >
-              <h1 className="py-2">User</h1>
+              <h1 className="py-2">User</h1> 
             </div>
             <div
               onClick={() => setToggle(false)}
@@ -47,7 +65,7 @@ const Login = () => {
               id="email"
               name="mail" 
               placeholder="Email"
-              onChange={(e)=>{setEmail(e.target.value)}}
+              onChange={(e)=>{setLogin({...login, email:e.target.value})}} 
             ></input>
 
             <input
@@ -56,7 +74,7 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="Enter Password"
-              onChange={(e)=>{setPass(e.target.value)}}
+              onChange={(e)=>{setLogin({...login, password :e.target.value})}} 
             ></input>
 
             <button
