@@ -59,37 +59,30 @@ public class UserService {
     }
 
     public BikeModel getBikeDetails(BikeModel data) {
-        BikeModel bike = bikeRepository.findById(Long.parseLong(data.getBikeID())).get();
-        System.out.println(bike);
-        return bike;
-        // return bikeRepository.findById(Long.parseLong(bike.getBikeID())).get();
+        return bikeRepository.findById(Long.parseLong(data.getBikeID())).get();
     }
 
     public UserModel editUser(UserModel data) {
         UserModel user = userRepository.findById(data.getId()).get();
+
+        user.setAge(data.getAge());
         user.setEmail(data.getEmail());
         user.setPassword(data.getPassword());
         user.setMobileNumber(data.getMobileNumber());
         user.setUsername(data.getUsername());
-        user.setAge(data.getAge());
+        user.setUserRole("user");
         user = userRepository.save(data);
         return user;
     }
 
-    public boolean saveBooking(BookingsModel data) {
-        BikeModel bike = bikeRepository.findById(data.getBikeID()).get();
-        if(!(bike.getStatus().equals("true"))) return false;
-        List<BookingsModel> bookings = bookingsRepository.findAll();
-        for (BookingsModel booking : bookings) {
-            if (booking.getId().equals(data.getId())) {
-                return true;
-            }
-        }
+    public boolean saveBooking(Long id) {
+        BikeModel bike = bikeRepository.findById(id).get();
+        if(bike.getStatus().equals("true")) return true;
         return false;
     }
     
     public BookingsModel createBooking(BookingsModel data) {
-        if(!saveBooking(data)) bookingsRepository.save(data);
+        if(!saveBooking(data.getBikeID())) return bookingsRepository.save(data);
         return null;
     }
     
