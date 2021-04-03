@@ -22,5 +22,13 @@ const config = {
         companyAddress : "",
         earnings : 0 ,
     },
+    addBikeObj : {
+        adminID : "",
+        bikeID : "123",
+        status  :true,
+        bikeModel : "",
+        type : "",
+        price : "",
+    }
 }
 export default config;
