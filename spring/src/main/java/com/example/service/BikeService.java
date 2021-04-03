@@ -18,7 +18,7 @@ public class BikeService {
     public BikeModel isBikePresent(BikeModel data) {
         List<BikeModel> bikes = bikeRepository.findAll();
         for (BikeModel bike : bikes) {
-            if (bike.getBikeID().equals(data.getBikeID()))
+            if (bike.getId().equals(data.getId()))
                 return bike;
         }
         return null;

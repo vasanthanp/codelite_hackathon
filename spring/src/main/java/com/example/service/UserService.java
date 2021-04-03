@@ -60,8 +60,7 @@ public class UserService {
     }
 
     public BikeModel getBikeDetails(BikeModel data) {
-        System.out.println("At line 62 at UserService " + data.getBikeID());
-        return bikeRepository.findBybikeID(data.getBikeID());
+        return bikeRepository.findById(data.getId()).get();
     }
 
     public UserModel findUserByEmail(LoginModel email) {
@@ -69,7 +68,6 @@ public class UserService {
     }
 
     public UserModel editUser(UserModel data) {
-        System.out.println("At line 72 at UserService " + data.getId());
         UserModel user = userRepository.findById(data.getId()).get();
 
         user.setAge(data.getAge());
@@ -82,26 +80,25 @@ public class UserService {
         return user;
     }
 
-    public boolean saveBooking(Long id) {
-        BikeModel bike = bikeRepository.findById(id).get();
-        if (bike.getStatus().equals("true"))
-            return true;
-        return false;
+    public AdminModel addEarnings(Long id, String price) {
+        AdminModel admin = adminRepository.findById(id).get();
+        admin.setEarnings(admin.getEarnings() + Integer.parseInt(price));
+        return admin;
     }
 
     public BookingsModel createBooking(BookingsModel data) {
-
-        if (!saveBooking(data.getBikeID()))
-            return bookingsRepository.save(data);
+        BikeModel bike = bikeRepository.findById(data.getId()).get();
+        if (!bike.getStatus().equals("true")) {
+            bike.setStatus(true + "");
+            AdminModel admin = addEarnings(bike.getAdminID(), bike.getPrice());
+            BookingsModel newBooking = new BookingsModel(data.getUserID(), data.getBikeID(), admin.getCompanyName(), data.getBikeModel(), data.getRent(), data.getDays(),data.getDays() * data.getRent());
+            return bookingsRepository.save(newBooking);
+        }
         return null;
     }
 
     public List<BookingsModel> getBookings(LoginModel data) {
-        System.out.println("At line 100 at UserService " + data.getEmail());
         UserModel user = findUserIdByEmail(data);
-        System.out.println("At line 102 at UserService " + user.getEmail() + " " + user.getId());
-        if (user == null)
-            return null;
         List<BookingsModel> bookings = bookingsRepository.findAll();
         List<BookingsModel> userBookings = new ArrayList<>();
         for (BookingsModel booking : bookings) {

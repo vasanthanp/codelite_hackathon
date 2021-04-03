@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @CrossOrigin("http://localhost:8081")
 @RestController
@@ -41,4 +40,5 @@ public class AdminController {
     public List<BookingsModel> userBookings(@RequestBody AdminModel user) {
         return adminService.getBookings(user);
     }
+
 }
