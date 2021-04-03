@@ -47,14 +47,28 @@ const apiService = {
         )  
     },
     adminDashboard : (val)=>{
-        return (
-            axios.post('http://localhost:8080/admin/dashboard',  {"email" : val})
+       return (
+        axios.post('http://localhost:8080/admin/dashboard', {"email" : val})
+        .then((res)=>{
+            console.log(res);
+            return res.data;
+        })
+       );
+    },
+    addNewBikeAndSave : (val)=>{
+        axios.post('http://localhost:8080/bike/save', val)
+        .then((res)=>{
+            console.log(res.data);
+        })
+    },
+    getBikeDetais : (id)=>{
+        return(
+            axios.post('http://localhost:8080/user/bikeDetails', {id})
             .then((res)=>{
-                console.log(res);
+                console.log(res.data);
                 return res.data;
             })
         );
-        
     },
     userDashboard : () => {
       return (

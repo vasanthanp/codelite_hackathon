@@ -80,9 +80,23 @@ const helperService = {
             throw "Already Email id exist.Try with another email id." ;
         }
     },
-    adminDashboard : async()=>{
+    adminDashboard : async ()=>{
         let email = localStorage.getItem("email");
-        return await apiService.adminDashboard(email);
+        let res = await apiService.adminDashboard(email);
+        if(res.length>0){
+            console.log(res[0].adminID);
+            localStorage.setItem("adminId",res[0].adminID);
+        }
+        return res;
+    },
+    addNewBikeAndSave : async(bikeDetail,props)=>{
+        let adminID = localStorage.getItem("adminId");
+        bikeDetail.adminID = adminID;
+        await apiService.addNewBikeAndSave(bikeDetail);
+        props.history.push("/");       
+    },
+    getBikeDetails : async(id)=>{
+        return await apiService.getBikeDetais(id);
     },
     userDashboard: async () => {
         return  await apiService.userDashboard();
