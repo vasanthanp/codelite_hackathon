@@ -6,22 +6,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SecondaryTable;
+import javax.persistence.SecondaryTables;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Bike")
+@SecondaryTables({ @SecondaryTable(name = "admin") })
 public class BikeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "bikeID")
     private String bikeID;
+    @Column(name = "bikeNo")
+    private String bikeNo;
 
     @Column(name = "adminID")
-    private Long adminID;
+    private String adminID;
 
-    @Column(name = "bike_model")
-    private String bikeModel;
     @Column(name = "status")
     private String status;
     @Column(name = "price")
@@ -29,6 +32,15 @@ public class BikeModel {
     @Column(name = "type")
     private String type;
 
+    public BikeModel(Long id, String bikeID, String bikeNo, String adminID, String status, String price, String type) {
+        this.id = id;
+        this.bikeID = bikeID;
+        this.bikeNo = bikeNo;
+        this.adminID = adminID;
+        this.status = status;
+        this.price = price;
+        this.type = type;
+    }
 
     public BikeModel() {
     }
@@ -49,12 +61,19 @@ public class BikeModel {
         this.bikeID = bikeID;
     }
 
+    public String getBikeNo() {
+        return bikeNo;
+    }
 
-    public Long getAdminID() {
+    public void setBikeNo(String bikeNo) {
+        this.bikeNo = bikeNo;
+    }
+
+    public String getAdminID() {
         return adminID;
     }
 
-    public void setAdminID(Long adminID) {
+    public void setAdminID(String adminID) {
         this.adminID = adminID;
     }
 
@@ -79,25 +98,6 @@ public class BikeModel {
     }
 
     public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getBikeModel() {
-        return bikeModel;
-    }
-
-    public void setBikeModel(String bikeModel) {
-        this.bikeModel = bikeModel;
-    }
-
-    public BikeModel(Long id, String bikeID, Long adminID, String bikeModel, String status,
-            String price, String type) {
-        this.id = id;
-        this.bikeID = bikeID;
-        this.adminID = adminID;
-        this.bikeModel = bikeModel;
-        this.status = status;
-        this.price = price;
         this.type = type;
     }
 

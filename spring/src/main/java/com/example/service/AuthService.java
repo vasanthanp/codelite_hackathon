@@ -4,10 +4,8 @@ import java.util.List;
 
 import com.example.model.AdminModel;
 import com.example.model.LoginModel;
-import com.example.model.SuperAdminModel;
 import com.example.model.UserModel;
 import com.example.repository.AdminRepository;
-import com.example.repository.SuperAdminRepository;
 import com.example.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +17,6 @@ public class AuthService {
     UserRepository userRepository;
     @Autowired
     AdminRepository adminRepository;
-    @Autowired
-    SuperAdminRepository superAdminRepository;
 
     // ===============SIGN-UP==============================
     public UserModel setCurrentUser(UserModel data) {
@@ -76,14 +72,6 @@ public class AuthService {
             if (admin.getEmail().equals(data.getEmail()) && admin.getPassword().equals(data.getPassword()))
                 return true;
         }
-        return false;
-    }
-
-    public boolean isSuperAdminPresent(SuperAdminModel data) {
-        SuperAdminModel superadmin = superAdminRepository.findById(data.getId()).get();
-        if (superadmin.getEmail().equals(data.getEmail()) && superadmin.getPassword().equals(data.getPassword()))
-            return true;
-
         return false;
     }
 }
