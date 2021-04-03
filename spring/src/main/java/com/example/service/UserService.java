@@ -88,7 +88,6 @@ public class UserService {
     }
 
     public BookingsModel createBooking(BookingsModel data) {
-
         if (!saveBooking(data.getBikeID()))
             return bookingsRepository.save(data);
         return null;
