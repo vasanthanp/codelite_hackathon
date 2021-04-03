@@ -2,14 +2,15 @@ package com.example.controller;
 
 import com.example.model.AdminModel;
 import com.example.model.LoginModel;
+import com.example.model.SuperAdminModel;
 import com.example.model.UserModel;
 import com.example.service.AuthService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin("http://localhost:8081")
 @RestController
@@ -27,6 +28,11 @@ public class AuthController {
         return authservice.isAdminPresent(data);
     }
 
+    @PostMapping("/superadmin/login")
+    public boolean isSuperAdminPresent(@RequestBody SuperAdminModel data) {
+        return authservice.isSuperAdminPresent(data);
+    }
+
     @PostMapping("/user/signup")
     public UserModel saveUser(@RequestBody UserModel user) {
         return authservice.saveUser(user);
@@ -36,4 +42,5 @@ public class AuthController {
     public AdminModel saveAdmin(@RequestBody AdminModel admin) {
         return authservice.saveAdmin(admin);
     }
+
 }
