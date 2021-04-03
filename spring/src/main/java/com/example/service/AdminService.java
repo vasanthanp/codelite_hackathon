@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.example.model.AdminModel;
 import com.example.model.BikeModel;
@@ -53,6 +54,12 @@ public class AdminService {
     public List<BikeModel> getAdminBikes(String email) {
         AdminModel admin = getAdmin(email);
         if(admin != null) return getBikes(admin.getId());
+        return null;
+    }
+    public AdminModel getAdminById(Long id) {
+        Optional<AdminModel> admin = adminRepository.findById(id);
+        if (admin.isPresent())
+            return admin.get();
         return null;
     }
 

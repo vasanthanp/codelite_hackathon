@@ -1,35 +1,77 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import './Usernavbar.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Usernavbar.css";
 
 export default function UserNavbar() {
-    return (
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark " id="userNavbar">
-            <Link class="navbar-brand" to="/user/dashboard">Neo Bikes</Link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  // let Logout = (e) => {
+  //   e.preventDefault();
+  //   localStorage.clear();
+  // };
+  return (
+    <nav
+      className="navbar navbar-expand-lg navbar-dark bg-dark "
+      id="userNavbar"
+    >
+      <Link className="navbar-brand" to="/user/dashboard">
+        Neo Bikes
+      </Link>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <Link class="nav-link" to="/user/dashboard" id="userDashboardLink">Dashboard <span class="sr-only">(current)</span></Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link" to={`/user/profile/:${123}`} id="userProfileList">Profile</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link" to={`/user/bookings/:${123}`} id="userBookingList">My Booking</Link>
-                    </li>
-                </ul>
-                <span class=" my-2 my-lg-0">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="userLogoutButton">Logout</a>
-                        </li>
-                    </ul> 
-                </span>
-            </div>
-        </nav>
-    )
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <Link
+              className="nav-link"
+              to="/user/dashboard"
+              id="userDashboardLink"
+            >
+              Dashboard <span className="sr-only">(current)</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              className="nav-link"
+              to={`/user/profile`}
+              id="userProfileList"
+            >
+              Profile
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              className="nav-link"
+              to={`/user/bookings/${123}`}
+              id="userBookingList"
+            >
+              My Booking
+            </Link>
+          </li>
+        </ul>
+        <span className=" my-2 my-lg-0">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                to="/login"
+                id="userLogoutButton"
+                onClick={() => localStorage.clear()}
+              >
+                Logout
+              </Link>
+            </li>
+          </ul>
+        </span>
+      </div>
+    </nav>
+  );
 }

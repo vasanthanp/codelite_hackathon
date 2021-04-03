@@ -35,9 +35,7 @@ const SuperAdminNavbar = () => {
         <span class=" my-2 my-lg-0">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <Link class="nav-link" id="userLogoutButton">
-                Logout
-              </Link>
+              <Link class="nav-link" to="/login" id="superAdminLogoutButton"   onClick={()=>localStorage.clear()} >Logout</Link>
             </li>
           </ul>
         </span>

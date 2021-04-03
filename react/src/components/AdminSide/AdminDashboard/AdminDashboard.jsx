@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import helperService from "../../../Services/helperService";
 import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import "./AdminDashboard.css";
 
 export default function AdminDashboard() {
+  useEffect(() => {
+    console.log("useeffext");
+    helperService.adminDashboard();
+    
+  }, [])
   return (
     <>
       <AdminNavbar />

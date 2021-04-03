@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './AdminNabar.css'
 
 
-export default function AdminNavbar() {
+export default function AdminNavbar(props) {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark " id="userNavbar">
         <Link class="navbar-brand" to="/admin/dashboard">Neo Bikes</Link>
@@ -17,16 +17,16 @@ export default function AdminNavbar() {
                     <Link class="nav-link" to="/admin/dashboard" id="userDashboardLink"><i class="fa fa-tachometer-alt"></i> Dashboard <span class="sr-only">(current)</span></Link>
                 </li>
                 <li class="nav-item">
-                    <Link class="nav-link" to={`/admin/profile/:${123}`} id="userProfileList"><i class="fa fa-user-circle"></i> Profile</Link>
+                    <Link class="nav-link" to={`/admin/profile/${123}`} id="userProfileList"><i class="fa fa-user-circle"></i> Profile</Link>
                 </li>
                 <li class="nav-item">
-                    <Link class="nav-link" to={`/admin/bookings/:${123}`} id="userBookingList"><i class="fa fa-book"></i> Booking</Link>
+                    <Link class="nav-link" to={`/admin/bookings/${123}`} id="userBookingList"><i class="fa fa-book"></i> Booking</Link>
                 </li>
             </ul>
             <span class=" my-2 my-lg-0">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="userLogoutButton">Logout</a>
+                        <Link class="nav-link" to="/login" id="adminLogoutButton"   onClick={()=>localStorage.clear()} >Logout</Link>
                     </li>
                 </ul> 
             </span>

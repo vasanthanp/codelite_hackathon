@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.model.AdminModel;
 import com.example.model.BikeModel;
 import com.example.model.BookingsModel;
+import com.example.model.LoginModel;
 import com.example.model.UserModel;
 import com.example.repository.AdminRepository;
 import com.example.repository.BikeRepository;
@@ -59,7 +60,11 @@ public class UserService {
     }
 
     public BikeModel getBikeDetails(BikeModel data) {
-        return bikeRepository.findById(Long.parseLong(data.getBikeID())).get();
+        return bikeRepository.findBybikeID(data.getBikeID());
+    }
+
+    public UserModel findUserByEmail(LoginModel email) {
+        return userRepository.findByEmail(email.getEmail());
     }
 
     public UserModel editUser(UserModel data) {
@@ -77,24 +82,32 @@ public class UserService {
 
     public boolean saveBooking(Long id) {
         BikeModel bike = bikeRepository.findById(id).get();
-        if(bike.getStatus().equals("true")) return true;
+        if (bike.getStatus().equals("true"))
+            return true;
         return false;
     }
-    
+
     public BookingsModel createBooking(BookingsModel data) {
-        if(!saveBooking(data.getBikeID())) return bookingsRepository.save(data);
+
+        if (!saveBooking(data.getBikeID()))
+            return bookingsRepository.save(data);
         return null;
     }
-    
-    public List<BookingsModel> getBookings(UserModel data) {
+
+    public List<BookingsModel> getBookings(LoginModel data) {
+        UserModel user = findUserIdByEmail(data);
         List<BookingsModel> bookings = bookingsRepository.findAll();
         List<BookingsModel> userBookings = new ArrayList<>();
         for (BookingsModel booking : bookings) {
-            if (booking.getUserID().equals(data.getId())) {
+            if (booking.getUserID() != null && booking.getUserID().equals(user.getId())) {
                 userBookings.add(booking);
             }
         }
         return userBookings;
+    }
+
+    private UserModel findUserIdByEmail(LoginModel user) {
+        return userRepository.findByEmail(user.getEmail());
     }
 
 }
