@@ -60,7 +60,7 @@ public class UserService {
     }
 
     public BikeModel getBikeDetails(BikeModel data) {
-        return bikeRepository.findBybikeID(data.getBikeID());
+        return bikeRepository.findById(data.getId()).get();
     }
 
     public UserModel findUserByEmail(LoginModel email) {
@@ -79,17 +79,13 @@ public class UserService {
         user = userRepository.save(data);
         return user;
     }
-
-    public boolean saveBooking(Long id) {
-        BikeModel bike = bikeRepository.findById(id).get();
-        if (bike.getStatus().equals("true"))
-            return true;
-        return false;
-    }
-
+    
     public BookingsModel createBooking(BookingsModel data) {
-        if (!saveBooking(data.getBikeID()))
+        BikeModel bike = bikeRepository.findById(data.getBikeID()).get();
+        if (!bike.getStatus().equals("true")) {
+            bike.setStatus(true+"");
             return bookingsRepository.save(data);
+        }
         return null;
     }
 
