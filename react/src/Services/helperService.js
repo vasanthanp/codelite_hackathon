@@ -80,9 +80,9 @@ const helperService = {
             throw "Already Email id exist.Try with another email id." ;
         }
     },
-    adminDashboard : ()=>{
+    adminDashboard : async()=>{
         let email = localStorage.getItem("email");
-        apiService.adminDashboard(email);
+        return await apiService.adminDashboard(email);
     },
     userDashboard: async () => {
         return await apiService.userDashboard();

@@ -10,8 +10,7 @@ export default function AdminDashboard() {
   const [bikelist, setBikelist] = useState([]);
   let getCompanyBikes = async () => {
     try {
-      //setBikelist(await helperService.adminDashboard());
-
+      setBikelist(await helperService.adminDashboard());
     }catch(err){
       let e = "" + err; 
       confirmAlert({
@@ -33,7 +32,6 @@ export default function AdminDashboard() {
               Bike Company Name
             </h2>
             <br />
-            {console.log(bikelist)}
             {bikelist.map(bike => { 
                return(<div className="container" id="align1" key={bike.id}>
                <span id="status">Booked</span>
