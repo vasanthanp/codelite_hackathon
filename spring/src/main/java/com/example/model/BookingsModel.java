@@ -13,50 +13,46 @@ public class BookingsModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="user_id")
+    @Column(name = "user_id")
     private Long userID;
-    @Column(name="bike_id")
+    @Column(name = "bike_id")
     private Long bikeID;
-    @Column(name="company_name")
+    @Column(name = "company_name")
     private String companyName;
-    @Column(name="bike_model")
+    @Column(name = "bike_model")
     private String bikeModel;
-    @Column(name="rent" , columnDefinition = "integer default 0")
+    @Column(name = "rent", columnDefinition = "integer default 0")
     private Long rent;
-    @Column(name="days", columnDefinition = "integer default 0")
+    @Column(name = "days", columnDefinition = "integer default 1")
     private Long days;
-    @Column(name="total_price", columnDefinition = "integer default 0")
+    @Column(name = "total_price", columnDefinition = "integer default 0")
     private Long totalPrice;
+
     public BookingsModel() {
     }
 
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public Long getUserID() {
         return userID;
     }
+
     public void setUserID(Long userID) {
         this.userID = userID;
     }
+
     public Long getBikeID() {
         return bikeID;
     }
+
     public void setBikeID(Long bikeID) {
         this.bikeID = bikeID;
-    }
-
-    public BookingsModel(Long id, Long userID, Long bikeID, String bikeModel, Long rent, Long days, Long totalPrice) {
-        this.id = id;
-        this.userID = userID;
-        this.bikeID = bikeID;
-        this.bikeModel = bikeModel;
-        this.rent = rent;
-        this.days = days;
-        this.totalPrice = totalPrice;
     }
 
     public String getBikeModel() {
@@ -97,6 +93,29 @@ public class BookingsModel {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    public BookingsModel(Long id, Long userID, Long bikeID, String companyName, String bikeModel, Long rent, Long days,
+            Long totalPrice) {
+        this.id = id;
+        this.userID = userID;
+        this.bikeID = bikeID;
+        this.companyName = companyName;
+        this.bikeModel = bikeModel;
+        this.rent = rent;
+        this.days = days;
+        this.totalPrice = totalPrice;
+    }
+
+    public BookingsModel(Long userID, Long bikeID, String companyName, String bikeModel, Long rent, Long days,
+            Long totalPrice) {
+        this.userID = userID;
+        this.bikeID = bikeID;
+        this.companyName = companyName;
+        this.bikeModel = bikeModel;
+        this.rent = rent;
+        this.days = days;
+        this.totalPrice = totalPrice;
     }
 
 }

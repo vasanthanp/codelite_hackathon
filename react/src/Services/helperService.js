@@ -99,8 +99,7 @@ const helperService = {
         return await apiService.getBikeDetais(id);
     },
     userDashboard: async () => {
-        return await apiService.userDashboard();
-        
+        return  await apiService.userDashboard();
     },
     companyDetailWithAdminId : async (compId) => {
         return await apiService.companyDetailWithAdminId(compId);

@@ -15,9 +15,15 @@ export default function BikeDetails() {
     getBikeDetail();
   }, []);
 
-  const bookeBike = (e) => {
+  const bookeBike = async(e) => {
     e.preventDefault();
-    console.log(helperService.bookBike(bike));
+    helperService.userDetailWithEmail();
+    let obj = bike;
+    obj['userID'] = localStorage.getItem("userID");
+    obj["bikeID"] = obj["id"]; 
+    obj["days"] = 1;
+    obj["rent"] = obj["price"];
+    helperService.bookBike(obj);
   };
   return (
     <div>

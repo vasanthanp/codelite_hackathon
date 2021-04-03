@@ -79,12 +79,20 @@ public class UserService {
         user = userRepository.save(data);
         return user;
     }
-    
+
+    public AdminModel addEarnings(Long id, String price) {
+        AdminModel admin = adminRepository.findById(id).get();
+        admin.setEarnings(admin.getEarnings() + Integer.parseInt(price));
+        return admin;
+    }
+
     public BookingsModel createBooking(BookingsModel data) {
-        BikeModel bike = bikeRepository.findById(data.getBikeID()).get();
+        BikeModel bike = bikeRepository.findById(data.getId()).get();
         if (!bike.getStatus().equals("true")) {
-            bike.setStatus(true+"");
-            return bookingsRepository.save(data);
+            bike.setStatus(true + "");
+            AdminModel admin = addEarnings(bike.getAdminID(), bike.getPrice());
+            BookingsModel newBooking = new BookingsModel(data.getUserID(), data.getBikeID(), admin.getCompanyName(), data.getBikeModel(), data.getRent(), data.getDays(),data.getDays() * data.getRent());
+            return bookingsRepository.save(newBooking);
         }
         return null;
     }

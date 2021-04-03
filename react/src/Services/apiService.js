@@ -74,6 +74,7 @@ const apiService = {
       return (
         axios("http://localhost:8080/user/dashboard")
         .then(res =>{
+            console.log(res.data);
             return res.data;
         } )
       ) 
@@ -96,7 +97,7 @@ const apiService = {
     userDetailsWithEmail : () => {
         const email = localStorage.getItem("email");
         return axios.post("http://localhost:8080/user/profile",{email})
-        .then(res => res.data)
+        .then(res => localStorage.setItem("userID", res.data.id))
     },
     updateUserWithId : (user) => {
         return axios.put("http://localhost:8080/user/edit",user)
