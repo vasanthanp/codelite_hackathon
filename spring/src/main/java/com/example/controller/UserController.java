@@ -35,7 +35,6 @@ public class UserController {
 
     @PostMapping("/user/profile")
     public UserModel findUserByEmail(@RequestBody LoginModel email) {
-        System.out.println("At line 37 " + email);
         return userService.findUserByEmail(email);
     }
 

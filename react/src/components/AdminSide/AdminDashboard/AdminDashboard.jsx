@@ -11,7 +11,6 @@ export default function AdminDashboard() {
   let getCompanyBikes = async () => {
     try {
       setBikelist(await helperService.adminDashboard());
-
     }catch(err){
       let e = "" + err; 
       confirmAlert({
@@ -41,10 +40,10 @@ export default function AdminDashboard() {
                    <div className="col-lg-12">
                      <br />
                      <p>Bike Model: {bike.bikeModel}</p>
-                     <div className="col-sm-10  float-right">
+                     <div className="col-sm-9  float-right">
                        <p className="typebike offset-lg-3">
                          Type: {bike.type}
-                       <Link to="/admin/editBike">
+                       <Link to={`/admin/editBike/${bike.id}`}>
                            {" "}
                            <button className="btn offset-lg-1 editbtn">
                              <i className="fa fa-edit"></i>

@@ -49,7 +49,7 @@ export default function CompDetailContent() {
         {console.log(bikes)}
         {bikes.length > 0 &&
           bikes.map((bike) => (
-            <Link to={`/user/bikeDetail/${bike.bikeID}`} key={bike.bikeID}>
+            <Link to={`/user/bikeDetail/${bike.id}`} key={bike.id}>
               <div className="row bike-detail">
                 <div className="col-4 bike-modal">
                   Bike Model : {bike.bikeModel}

@@ -24,8 +24,15 @@ const config = {
     },
     addBikeObj : {
         adminID : "",
-        bikeID : "123",
-        status  :true,
+        status  :false,
+        bikeModel : "",
+        type : "",
+        price : "",
+    },
+    editBikeObj : {
+        id : "",
+        adminID : "",
+        status  :false,
         bikeModel : "",
         type : "",
         price : "",

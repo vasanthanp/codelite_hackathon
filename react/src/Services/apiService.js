@@ -61,6 +61,15 @@ const apiService = {
             console.log(res.data);
         })
     },
+    getBikeDetais : (id)=>{
+        return(
+            axios.post('http://localhost:8080/user/bikeDetails', {id})
+            .then((res)=>{
+                console.log(res.data);
+                return res.data;
+            })
+        );
+    },
     userDashboard : () => {
       return (
         axios("http://localhost:8080/user/dashboard")
@@ -80,8 +89,8 @@ const apiService = {
                 return res.data;
         } )
     },
-    bikeDetailWithBikeId : (bikeID) => {
-        return axios.post("http://localhost:8080/user/bikeDetails",{bikeID})
+    bikeDetailWithBikeId : (id) => {
+        return axios.post("http://localhost:8080/user/bikeDetails",{id})
         .then(res => res.data)
     },
     userDetailsWithEmail : () => {

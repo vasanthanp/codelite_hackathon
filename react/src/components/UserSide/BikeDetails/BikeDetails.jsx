@@ -71,9 +71,9 @@ export default function BikeDetails() {
             <div className="user-bike-description"></div>
             {/* <Link to="/user/dashboard"> */}
             <button
-              disabled={bike.status === "true"}
+              disabled={bike.status === "true"?true:false}
               type="button"
-              class="btn btn-lg btn-success user-book-btn disabled"
+              class="btn btn-lg btn-success user-book-btn "
               onClick={bookeBike}
             >
               Book the Bike
