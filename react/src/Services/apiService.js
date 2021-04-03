@@ -47,15 +47,54 @@ const apiService = {
         )  
     },
     adminDashboard : (val)=>{
-        let v  = {"email" : val};
-        console.log(v);
-        axios.post('http://localhost:8080/admin/dashboard', v)
+        return (
+            axios.post('http://localhost:8080/admin/dashboard',  {"email" : val})
             .then((res)=>{
                 console.log(res);
-                //return res.data;
+                return res.data;
             })
-            .catch(err=>{console.log(err)})
+        );
+        
+    },
+    userDashboard : () => {
+      return (
+        axios("http://localhost:8080/user/dashboard")
+        .then(res =>{
+            return res.data;
+        } )
+      ) 
+    },
+    companyDetailWithAdminId : (compId) => {
+        return axios(`http://localhost:8080/user/companyDetail/${compId}`)
+        .then(res => res.data)
+    },
+    bikesWithAdminId : (email) => {
+        return axios.post("http://localhost:8080/admin/dashboard",email)
+        .then(res =>{
+                console.log(res);   
+                return res.data;
+        } )
+    },
+    bikeDetailWithBikeId : (bikeID) => {
+        return axios.post("http://localhost:8080/user/bikeDetails",{bikeID})
+        .then(res => res.data)
+    },
+    userDetailsWithEmail : () => {
+        const email = localStorage.getItem("email");
+        return axios.post("http://localhost:8080/user/profile",{email})
+        .then(res => res.data)
+    },
+    updateUserWithId : (user) => {
+        return axios.put("http://localhost:8080/user/edit",user)
+        .then(res => res.data);
+    },
+    userBookings : () => {
+        return axios.post("http://localhost:8080/user/bookings",{email:localStorage.getItem("email")})
+        .then(res => res.data)
+    },
+    bookBike : (bikeDetail) => {
+        return axios.post("http://localhost:8080/user/bookBike",bikeDetail)
+        .then(res => console.log(res))
     }
-
 };
 export default apiService;
