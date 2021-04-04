@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import config from "../../../Services/config";
 import helperService from "../../../Services/helperService";
 import UserNavbar from "../AdminNavbar/AdminNavbar";
 import "./AdminProfile.css";
 
 export default function AdminProfile() {
-  const [proDetails, setProDetails] = useState({});
+  const [proDetails, setProDetails] = useState(config.adminProfileObj);
   let getAdminProfile = async()=>{
     setProDetails(await helperService.getAdminProfile());
   }
@@ -24,32 +25,33 @@ export default function AdminProfile() {
                   Name{" "}
                   <span className=" user-profile-info-text2">
                     {" "}
-                    : Jennifer Aniston
+                    : {proDetails.sellerName}
                   </span>
                 </p>
                 <p>
                   Email{" "}
                   <span className=" user-profile-info-text2">
                     {" "}
-                    : rachelgreen@iamneo.ai
+                    : {proDetails.email}
                   </span>
                 </p>
                 <p>
                   Mobile No{" "}
                   <span className=" user-profile-info-text2">
                     {" "}
-                    : 1234567890{" "}
+                    : {proDetails.mobileNumber}{" "}
                   </span>{" "}
                 </p>
                 <p>
-                  Password{" "}
+                  Password
                   <span className=" user-profile-info-text2">
                     {" "}
                     :{" "}
                     <input
+                      disabled = {true}
                       type="password"
-                      value="12345678"
-                      style={{ width: "130px", cursor: "none" }}
+                      value={proDetails.password}
+                      style={{ width: "130px"}}
                     />
                   </span>{" "}
                 </p>
@@ -57,13 +59,13 @@ export default function AdminProfile() {
               <div className="col-lg-6">
                 <p>
                   Comapany Name{" "}
-                  <span className=" user-profile-info-text2"> : Virtusa</span>
+                  <span className=" user-profile-info-text2"> : {proDetails.companyName}</span>
                 </p>
                 <p>
                   Company Address{" "}
                   <span className=" user-profile-info-text2">
                     {" "}
-                    : 1/74A, Area, Locality, District, pincode
+                    : {proDetails.companyAddress}
                   </span>
                 </p>
               </div>
@@ -77,7 +79,7 @@ export default function AdminProfile() {
                 alt="admin-avtar"
               />
               <br />
-              <Link to={`/admin/editProfile/${123}`}>
+              <Link to={`/admin/editProfile/${proDetails.id}`}>
                 <button type="button" class="btn btn-lg btn-warning  ">
                   Edit Profile
                 </button>

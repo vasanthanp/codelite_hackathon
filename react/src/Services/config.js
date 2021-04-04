@@ -44,6 +44,16 @@ const config = {
         mobileNumber : "",
         sellerName : "",
         password : "",
-    }
+        earnings : "",
+    },
+    adminbookingObj :{
+        id : "",
+        userID : "",
+        bikeID : "",
+        bikeModel : "",
+        rent : "",
+        days: "",
+        totalPrice : "",
+    },
 }
 export default config;

@@ -17,7 +17,7 @@ export default function AdminNavbar(props) {
                     <Link className="nav-link" to="/admin/dashboard" id="userDashboardLink"><i className="fa fa-tachometer-alt"></i> Dashboard <span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to={`/admin/profile/${123}`} id="userProfileList"><i className="fa fa-user-circle"></i> Profile</Link>
+                    <Link className="nav-link" to={`/admin/profile/`} id="userProfileList"><i className="fa fa-user-circle"></i> Profile</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to={`/admin/bookings/`} id="userBookingList"><i className="fa fa-book"></i> Booking</Link>

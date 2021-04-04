@@ -62,7 +62,16 @@ getAdminProfile : (email)=>{
       })
   );
 },
-  getAdminBikes : (id)=>{
+adminEditProfile :(val)=>{
+    return(
+        axios.put('http://localhost:8080/admin/edit', val)
+        .then((res)=>{
+            console.log(res.data);
+            return res.data;
+        })
+    );
+},
+getAdminBikes : (id)=>{
     console.log(id);
     return(
         axios.post('http://localhost:8080/admin/bookings', {"id":Number(id)})

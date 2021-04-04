@@ -5,9 +5,22 @@ import AdminNavbar from "../AdminNavbar/AdminNavbar";
 import "./AdminDashboard.css";
 import { confirmAlert } from 'react-confirm-alert'; // Import alert
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import alert css
+import config from "../../../Services/config";
 
 export default function AdminDashboard() {
   const [bikelist, setBikelist] = useState([]);
+  const [compDetails, setCompDetails] = useState(config.adminProfileObj);
+  let getCompanyDetails = async () => {
+    try {
+      setCompDetails(await helperService.getAdminProfile());
+    }catch(err){
+      let e = "" + err; 
+      confirmAlert({
+          message: e,
+          buttons: [{label: 'close',}]
+      });
+    }
+  }
   let getCompanyBikes = async () => {
     try {
       setBikelist(await helperService.adminDashboard());
@@ -21,6 +34,7 @@ export default function AdminDashboard() {
   }
   useEffect(() => {
     getCompanyBikes();
+    getCompanyDetails();
   }, [])
   let deleteBike = (id)=>{
      helperService.DeletBike(id);
@@ -33,7 +47,7 @@ export default function AdminDashboard() {
         <div className="row">
           <div className="col-lg-9 col-sm-12 my-3">
             <h2 id="companyNames" align="center">
-              Bike Company Name
+              {compDetails.companyName}
             </h2>
             <br />
             {bikelist.map(bike => { 
@@ -75,7 +89,7 @@ export default function AdminDashboard() {
               <h4>Earnings</h4>
               <br />
               <span>Total Today</span>
-              <p>$-</p>
+              <p>${compDetails.earnings}</p>
               <hr
                 className="text-center"
                 size="5"
@@ -84,7 +98,7 @@ export default function AdminDashboard() {
               ></hr>
               <br />
               <span>Monthly</span>
-              <p>$-</p>
+              <p>${compDetails.earnings}</p>
               <br />
             </div>
             <br />
