@@ -122,6 +122,9 @@ const helperService = {
   DeletBike: async (id) => {
     await apiService.DeletBike(id);
   },
+  getAdminProfile : async()=>{
+    return apiService.getAdminProfile(localStorage.getItem("email"));
+},
   getAdminBikes: async () => {
     let adminId = localStorage.getItem("adminId");
     return apiService.getAdminBikes(adminId);

@@ -52,6 +52,16 @@ DeletBike :(id)=>{
         })
     );
 },
+getAdminProfile : (email)=>{
+  console.log(email);
+  return(
+      axios.post('http://localhost:8080/admin/profile', {email})
+      .then((res)=>{
+          console.log(res.data);
+          return res.data;
+      })
+  );
+},
   getAdminBikes : (id)=>{
     console.log(id);
     return(
