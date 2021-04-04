@@ -33,7 +33,7 @@ const routes = (
       <AdminBooking />
     </Route>
     <Route exact path="/admin/dashboard" component={AdminDashboard}></Route>
-    <Route exact path="/admin/editBike" component={EditBike}></Route>
+    <Route exact path="/admin/editBike/:id" component={EditBike}></Route>
     <Route exact path="/admin/addBike" component={AddNewBike}></Route>
 
     <Route exact path="/user/dashboard" component={UserDashboard} />

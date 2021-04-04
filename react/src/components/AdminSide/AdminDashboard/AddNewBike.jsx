@@ -8,8 +8,6 @@ import { confirmAlert } from 'react-confirm-alert'; // Import alert
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import alert css
 
 function AddNewBike(props) {
-    const {routerpassVal} = useLocation();
-    console.log(routerpassVal);
     const [bikeDetail, setBikeDetail] = useState(config.addBikeObj);
 
     let validation = ()=>{
