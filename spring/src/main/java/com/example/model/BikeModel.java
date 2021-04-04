@@ -14,8 +14,6 @@ public class BikeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // @Column(name = "bikeID")
-    // private String bikeID;
 
     @Column(name = "adminID")
     private Long adminID;
@@ -29,7 +27,6 @@ public class BikeModel {
     @Column(name = "type")
     private String type;
 
-
     public BikeModel() {
     }
 
@@ -40,15 +37,6 @@ public class BikeModel {
     public void setId(Long id) {
         this.id = id;
     }
-
-    // public String getBikeID() {
-    //     return bikeID;
-    // }
-
-    // public void setBikeID(String bikeID) {
-    //     this.bikeID = bikeID;
-    // }
-
 
     public Long getAdminID() {
         return adminID;
@@ -90,8 +78,7 @@ public class BikeModel {
         this.bikeModel = bikeModel;
     }
 
-    public BikeModel(Long id,  Long adminID, String bikeModel, String status,
-            String price, String type) {
+    public BikeModel(Long id, Long adminID, String bikeModel, String status, String price, String type) {
         this.id = id;
         // this.bikeID = bikeID;
         this.adminID = adminID;

@@ -4,26 +4,26 @@ import helperService from "../../../Services/helperService";
 import UserNavbar from "../UserNavbar/UserNavbar";
 import "./BikeDetails.css";
 
-export default function BikeDetails() {
+export default function BikeDetails(props) {
   const { bikeId } = useParams();
   const [bike, setBike] = useState({});
 
   const getBikeDetail = async () => {
     setBike(await helperService.bikeDetailWithBikeId(bikeId));
+    await helperService.userDetailWithEmail();
   };
   useEffect(() => {
     getBikeDetail();
   }, []);
 
-  const bookeBike = async(e) => {
+  const bookeBike = async (e) => {
     e.preventDefault();
-    helperService.userDetailWithEmail();
     let obj = bike;
-    obj['userID'] = localStorage.getItem("userID");
-    obj["bikeID"] = obj["id"]; 
+    obj["userID"] = localStorage.getItem("userID");
+    obj["bikeID"] = obj["id"];
     obj["days"] = 1;
     obj["rent"] = obj["price"];
-    helperService.bookBike(obj);
+    helperService.bookBike(obj, props);
   };
   return (
     <div>
@@ -77,7 +77,7 @@ export default function BikeDetails() {
             <div className="user-bike-description"></div>
             {/* <Link to="/user/dashboard"> */}
             <button
-              disabled={bike.status === "true"?true:false}
+              disabled={bike.status === "true" ? true : false}
               type="button"
               class="btn btn-lg btn-success user-book-btn "
               onClick={bookeBike}

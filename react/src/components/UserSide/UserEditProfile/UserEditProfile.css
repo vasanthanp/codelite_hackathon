@@ -11,7 +11,7 @@
   line-height: 40px;
 }
 #AdminForm input::placeholder {
-  color: #000; 
+  color: #000;
 }
 #AdminForm input {
   height: 60px;
@@ -35,7 +35,6 @@
 }
 
 @media only screen and (max-width: 576px) {
-
   #AdminLoginBox {
     border-radius: 0px !important;
     height: 100% !important;

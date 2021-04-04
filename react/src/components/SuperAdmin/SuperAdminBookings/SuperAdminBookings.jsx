@@ -4,10 +4,8 @@ import SuperAdminNavbar from "../SuperAdminNavbar/SuperAdminNavbar";
 import "./SuperAdminBookings.css";
 const SuperAdminBookings = () => {
   const [bookings, setBooking] = useState([]);
-  const getAllBooking = async () => {
-    console.log(await helperService.getAllBookings());
+  const getAllBooking = async () =>
     setBooking(await helperService.getAllBookings());
-  };
   useEffect(() => {
     getAllBooking();
   }, []);

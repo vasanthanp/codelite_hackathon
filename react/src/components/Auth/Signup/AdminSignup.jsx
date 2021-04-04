@@ -33,8 +33,6 @@ function AdminSignup(props) {
       throw "Enter minimum 3 character for Seller name";
     if (t.companyName.length < 3)
       throw "Enter minimum 3 character for comapany name";
-    if (!t.companyImageURL.includes("https:"))
-      throw "Invalid url in company Image";
     if (t.companyAddress.length < 3) throw "Invalid company address";
     return true;
   };
@@ -44,7 +42,6 @@ function AdminSignup(props) {
       validation();
       await helperService.adminSignup(asignup, props);
     } catch (err) {
-      //console.log(err);
       let e = "" + err;
       confirmAlert({
         message: e,

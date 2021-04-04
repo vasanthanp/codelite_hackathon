@@ -16,7 +16,7 @@
 .bookings .list h3 {
   font-size: 19px;
 }
-.book-details-list  {
+.book-details-list {
   min-width: 566px;
 }
 @media (max-width: 768px) {

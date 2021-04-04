@@ -91,7 +91,9 @@ public class UserService {
         if (!bike.getStatus().equals("true")) {
             bike.setStatus(true + "");
             AdminModel admin = addEarnings(bike.getAdminID(), bike.getPrice());
-            BookingsModel newBooking = new BookingsModel(Long.parseLong(data.getUserID()+""), data.getBikeID(), admin.getCompanyName(), data.getBikeModel(), data.getRent(), data.getDays(),data.getDays() * data.getRent());
+            BookingsModel newBooking = new BookingsModel(Long.parseLong(data.getUserID() + ""), data.getBikeID(),
+                    admin.getCompanyName(), data.getBikeModel(), data.getRent(), data.getDays(),
+                    data.getDays() * data.getRent());
             return bookingsRepository.save(newBooking);
         }
         return null;

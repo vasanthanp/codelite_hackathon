@@ -9,11 +9,12 @@ const UserEditProfile = () => {
   const history = useHistory();
   const [user, setUser] = useState(config.userSignupObj);
   const [first, setFirst] = useState(true);
-  const settingUser = async () => setUser(await helperService.userDetailWithEmail());
-  useEffect( () => {
+  const settingUser = async () =>
+    setUser(await helperService.userDetailWithEmail());
+  useEffect(() => {
     if (first) {
       setFirst(false);
-      settingUser()
+      settingUser();
     }
   }, [first]);
 
@@ -52,7 +53,7 @@ const UserEditProfile = () => {
                 type="text"
                 className="form-control col-11 mt-0 mb-3 py-3 px-4 text-dark"
                 id="userName"
-                name="userName"                
+                name="userName"
                 value={user.username}
                 onChange={(e) => setUser({ ...user, username: e.target.value })}
               />
@@ -63,7 +64,7 @@ const UserEditProfile = () => {
                 type="email"
                 className="form-control col-11 mt-0 mb-3 py-3 px-4 text-dark"
                 id="userEmail"
-                name="userEmail"                
+                name="userEmail"
                 value={user.email}
                 onChange={(e) => setUser({ ...user, email: e.target.value })}
               />
@@ -75,7 +76,7 @@ const UserEditProfile = () => {
                 type="password"
                 className="form-control col-11 mt-0 mb-3 py-3 px-4 text-dark"
                 name="userPassword"
-                id="userPassword"                
+                id="userPassword"
                 value={user.password}
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
@@ -84,7 +85,7 @@ const UserEditProfile = () => {
                 type="text"
                 className="form-control col-11 mt-0 mb-3 py-3 px-4 text-dark"
                 name="userPassword"
-                id="userPassword"                
+                id="userPassword"
                 value={user.age}
                 onChange={(e) => setUser({ ...user, age: e.target.value })}
               />
@@ -95,7 +96,7 @@ const UserEditProfile = () => {
                 type="text"
                 className="form-control col-11 mt-0 mb-3 py-3 px-4 text-dark"
                 id="userMobilenumber"
-                name="userMobilenumber"                
+                name="userMobilenumber"
                 value={user.mobileNumber}
                 onChange={(e) =>
                   setUser({ ...user, mobileNumber: e.target.value })

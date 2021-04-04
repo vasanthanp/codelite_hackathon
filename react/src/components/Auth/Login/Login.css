@@ -6,13 +6,13 @@
   border-radius: 12px;
   max-width: 600px !important;
 }
-.signupLink{
+.signupLink {
   color: rgb(27, 163, 253) !important;
 }
-.login-members{
+.login-members {
   cursor: pointer;
 }
-.login-members .member h1{
+.login-members .member h1 {
   font-size: 30px !important;
 }
 .shadow {
@@ -57,7 +57,7 @@
     height: 35px !important;
     font-size: 25px !important;
   }
-  #LoginForm input{
+  #LoginForm input {
     height: 30px;
     font-size: 16px;
   }

@@ -27,10 +27,7 @@ const SuperAdminDashboard = () => {
           >
             <div className="list col-sm-12 d-flex align-items-center px-3 py-2 my-3">
               <div className="col-sm-2 text-center">
-                <img
-                  src="https://image.freepik.com/free-photo/smiling-caucasian-elegant-businessman-drinking-coffee-cafe-using-laptop-looking-trough-window-push-yourself-because-no-one-is-going-it-you_232070-2828.jpg"
-                  alt="admin-img"
-                />
+                <img src={admin.companyImageURL} alt="admin-img" />
               </div>
               <div className="col-sm-2 text-center">
                 <h3>{admin.sellerName}</h3>

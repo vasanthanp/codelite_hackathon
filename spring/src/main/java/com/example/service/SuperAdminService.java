@@ -30,16 +30,17 @@ public class SuperAdminService {
 
     public void deleteBikeBookings(Long id) {
         List<BookingsModel> bookings = bookingsRepository.findAll();
-        for(BookingsModel booking : bookings) {
-            if(booking.getBikeID().equals(id)) bookingsRepository.delete(booking);
+        for (BookingsModel booking : bookings) {
+            if (booking.getBikeID().equals(id))
+                bookingsRepository.delete(booking);
         }
     }
 
     public void deleteAdminBikes(Long id) {
 
         List<BikeModel> bikes = bikeRepository.findAll();
-        for(BikeModel bike: bikes) {
-            if(bike.getAdminID().equals(id)) {
+        for (BikeModel bike : bikes) {
+            if (bike.getAdminID().equals(id)) {
                 deleteBikeBookings(bike.getId());
                 bikeRepository.delete(bike);
             }
@@ -53,15 +54,17 @@ public class SuperAdminService {
                 deleteAdminBikes(admin.getId());
                 adminRepository.delete(admin);
             }
-        } catch (Exception e) { 
+        } catch (Exception e) {
         }
         return adminRepository.findAll();
-        
+
     }
+
     public void deleteUserBookings(Long id) {
         List<BookingsModel> bookings = bookingsRepository.findAll();
-        for(BookingsModel booking : bookings) {
-            if(booking.getUserID().equals(id)) bookingsRepository.delete(booking);
+        for (BookingsModel booking : bookings) {
+            if (booking.getUserID().equals(id))
+                bookingsRepository.delete(booking);
         }
     }
 
@@ -72,15 +75,15 @@ public class SuperAdminService {
                 deleteUserBookings(user.getId());
                 userRepository.delete(user);
             }
-        } catch (Exception e) { 
+        } catch (Exception e) {
         }
         return userRepository.findAll();
     }
 
     public List<List<Object>> getAllBookings() {
-        List<BookingsModel> bookings =  bookingsRepository.findAll();
+        List<BookingsModel> bookings = bookingsRepository.findAll();
         List<List<Object>> allBookings = new ArrayList<>(bookings.size());
-        for(BookingsModel booking : bookings) {
+        for (BookingsModel booking : bookings) {
             BikeModel bike = bikeRepository.findById(booking.getBikeID()).get();
             AdminModel admin = adminRepository.findById(bike.getAdminID()).get();
             List<Object> l = new ArrayList<>();

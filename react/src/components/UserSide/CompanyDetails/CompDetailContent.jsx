@@ -46,7 +46,6 @@ export default function CompDetailContent() {
         <p className="comp-number">{mobileNumber}</p>
       </div>
       <div className="bikes-details container-fluid">
-        {console.log(bikes)}
         {bikes.length > 0 &&
           bikes.map((bike) => (
             <Link to={`/user/bikeDetail/${bike.id}`} key={bike.id}>
