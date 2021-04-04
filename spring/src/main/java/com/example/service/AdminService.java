@@ -25,6 +25,10 @@ public class AdminService {
     @Autowired
     BookingsRepository bookingsRepository;
 
+    public List<AdminModel> getAllAdmins(){
+        return adminRepository.findAll();
+    }
+
     public AdminModel getAdmin(String email) {
         List<AdminModel> admins = adminRepository.findAll();
         for (AdminModel admin : admins) {

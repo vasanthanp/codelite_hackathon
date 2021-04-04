@@ -80,10 +80,11 @@ public class AuthService {
     }
 
     public boolean isSuperAdminPresent(SuperAdminModel data) {
-        SuperAdminModel superadmin = superAdminRepository.findById(data.getId()).get();
+        if(superAdminRepository.findById(data.getId())!=null)
+        {SuperAdminModel superadmin = superAdminRepository.findById(data.getId()).get();
         if (superadmin.getEmail().equals(data.getEmail()) && superadmin.getPassword().equals(data.getPassword()))
             return true;
-
+}
         return false;
     }
 }
