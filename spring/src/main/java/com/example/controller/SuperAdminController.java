@@ -3,7 +3,6 @@ package com.example.controller;
 import java.util.List;
 
 import com.example.model.AdminModel;
-import com.example.model.BookingsModel;
 import com.example.model.UserModel;
 import com.example.service.SuperAdminService;
 import com.example.service.AdminService;
@@ -22,22 +21,23 @@ public class SuperAdminController {
     @Autowired
     protected SuperAdminService superAdminService;
 
-    @PostMapping("/super/deleteAdmin")    
+    @PostMapping("/super/deleteAdmin")
     public List<AdminModel> deleteAdmin(@RequestBody AdminModel admin) {
         return superAdminService.deleteAdmin(admin.getId());
     }
 
-    @PostMapping("/super/deleteUser")    
+    @PostMapping("/super/deleteUser")
     public List<UserModel> deleteUser(@RequestBody UserModel user) {
-        return superAdminService.deleteUser(user.getId()); 
+        return superAdminService.deleteUser(user.getId());
     }
 
     @GetMapping("/super/allBookings")
-    public List<BookingsModel> getAllBookings() {
+    public List<List<Object>> getAllBookings() {
         return superAdminService.getAllBookings();
     }
+
     @GetMapping("/super/dashboard")
-    public List<AdminModel> getAllAdmins(){
+    public List<AdminModel> getAllAdmins() {
         return adminService.getAllAdmins();
     }
 }

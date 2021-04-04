@@ -19,30 +19,19 @@ public class BikeService {
     @Autowired
     private BookingsRepository bookingsRepository;
 
-    public BikeModel isBikePresent(BikeModel data) {
-        List<BikeModel> bikes = bikeRepository.findAll();
-        for (BikeModel bike : bikes) {
-            if (bike.getId().equals(data.getId()))
-                return bike;
-        }
-        return null;
-    }
-
     public List<BikeModel> saveBike(BikeModel data) {
-
-        if (isBikePresent(data) == null)
-            bikeRepository.save(data);
-
+        bikeRepository.save(data);
         List<BikeModel> bikeLists = bikeRepository.findAll();
-
         return bikeLists;
     }
 
     public BikeModel editBike(BikeModel data) {
         BikeModel bike = bikeRepository.findById(data.getId()).get();
 
-        if(bike.getAdminID() != null)data.setAdminID(bike.getAdminID());
-        if(bike.getStatus() != null)data.setStatus(bike.getStatus());
+        if (bike.getAdminID() != null)
+            data.setAdminID(bike.getAdminID());
+        if (bike.getStatus() != null)
+            data.setStatus(bike.getStatus());
 
         bike.setBikeModel(data.getBikeModel());
         bike.setPrice(data.getPrice());
@@ -57,8 +46,9 @@ public class BikeService {
 
     public void deleteBikeBookings(Long id) {
         List<BookingsModel> bookings = bookingsRepository.findAll();
-        for(BookingsModel booking : bookings) {
-            if(booking.getBikeID().equals(id)) bookingsRepository.delete(booking);
+        for (BookingsModel booking : bookings) {
+            if (booking.getBikeID().equals(id))
+                bookingsRepository.delete(booking);
         }
     }
 

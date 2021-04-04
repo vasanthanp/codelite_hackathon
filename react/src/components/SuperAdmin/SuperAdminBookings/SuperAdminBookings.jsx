@@ -4,10 +4,8 @@ import SuperAdminNavbar from "../SuperAdminNavbar/SuperAdminNavbar";
 import "./SuperAdminBookings.css";
 const SuperAdminBookings = () => {
   const [bookings, setBooking] = useState([]);
-  const getAllBooking = async () => {
-    console.log(await helperService.getAllBookings());
+  const getAllBooking = async () =>
     setBooking(await helperService.getAllBookings());
-  };
   useEffect(() => {
     getAllBooking();
   }, []);
@@ -39,25 +37,25 @@ const SuperAdminBookings = () => {
           {bookings.map((booking) => (
             <div
               className="list d-flex align-items-center super-book-row p-2"
-              key={booking.id}
+              key={booking[0]}
             >
               <div className="col-sm-2 text-center">
-                <h3>Admin Name</h3>
+                <h3>{booking[1]}</h3>
               </div>
               <div className="col-sm-2 text-center">
-                <h3>{booking.companyName}</h3>
+                <h3>{booking[2]}</h3>
               </div>
               <div className="col-sm-2 text-center">
-                <h3>{booking.bikeModel}</h3>
+                <h3>{booking[3]}</h3>
               </div>
               <div className="col-sm-2 text-center">
-                <h3>{booking.rent}</h3>
+                <h3>{booking[4]}</h3>
               </div>
               <div className="col-sm-2 text-center">
-                <h3>{booking.days}</h3>
+                <h3>{booking[5]}</h3>
               </div>
               <div className="col-sm-2 text-center">
-                <h3>{booking.totalPrice}</h3>
+                <h3>{booking[6]}</h3>
               </div>
             </div>
           ))}

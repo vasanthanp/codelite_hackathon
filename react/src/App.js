@@ -5,7 +5,10 @@ import helperService from "./Services/helperService";
 
 function App() {
   return (
-    <Router>{helperService.checkLogin()}{routes}</Router>
+    <Router>
+      {helperService.checkLogin()}
+      {routes}
+    </Router>
   );
 }
 

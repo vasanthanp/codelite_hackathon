@@ -37,7 +37,6 @@ function UserSignup(props) {
       validation();
       await helperService.userSignup(usignup, props);
     } catch (err) {
-      //console.log(err);
       let e = "" + err;
       confirmAlert({
         message: e,

@@ -28,47 +28,37 @@ const apiService = {
       return res.data;
     });
   },
-  adminDashboard: (val) => {
+  adminDashboard: (email) => {
     return axios
-      .post("http://localhost:8080/admin/dashboard", { email: val })
-      .then((res) => {
-        return res.data;
-      });
+      .post("http://localhost:8080/admin/dashboard", { email })
+      .then((res) => res.data);
   },
   addNewBikeAndSave: (val) => {
     axios.post("http://localhost:8080/bike/save", val).then((res) => {});
   },
-  editBikeandSave :(val)=>{
-    axios.put('http://localhost:8080/bike/edit', val)
-    .then((res)=>{
-        console.log(res.data);
-    })
-},
-DeletBike :(id)=>{
-    return(
-        axios.post('http://localhost:8080/bike/delete', {id})
-        .then((res)=>{
-            console.log(res.data);
-        })
-    );
-},
-getAdminProfile : (email)=>{
-  console.log(email);
-  return(
-      axios.post('http://localhost:8080/admin/profile', {email})
-      .then((res)=>{
-          console.log(res.data);
-          return res.data;
-      })
-  );
-},
-  getAdminBikes : (id)=>{
-    console.log(id);
-    return(
-        axios.post('http://localhost:8080/admin/bookings', {"id":Number(id)})
-        .then((res)=>res.data)
-    );
-},
+  editBikeandSave: (val) => {
+    axios.put("http://localhost:8080/bike/edit", val).then((res) => {});
+  },
+  DeletBike: (id) => {
+    return axios
+      .post("http://localhost:8080/bike/delete", { id })
+      .then((res) => {});
+  },
+  getAdminProfile: (email) => {
+    return axios
+      .post("http://localhost:8080/admin/profile", { email })
+      .then((res) => res.data);
+  },
+  adminEditProfile: (val) => {
+    return axios
+      .put("http://localhost:8080/admin/edit", val)
+      .then((res) => res.data);
+  },
+  getAdminBikes: (id) => {
+    return axios
+      .post("http://localhost:8080/admin/bookings", { id: Number(id) })
+      .then((res) => res.data);
+  },
   getBikeDetais: (id) => {
     return axios
       .post("http://localhost:8080/user/bikeDetails", { id })
@@ -92,10 +82,7 @@ getAdminProfile : (email)=>{
   bikesWithAdminId: (email) => {
     return axios
       .post("http://localhost:8080/admin/dashboard", email)
-      .then((res) => {
-        console.log(res);
-        return res.data;
-      });
+      .then((res) => res.data);
   },
   bikeDetailWithBikeId: (id) => {
     return axios
@@ -127,7 +114,7 @@ getAdminProfile : (email)=>{
   bookBike: (bikeDetail) => {
     return axios
       .post("http://localhost:8080/user/bookBike", bikeDetail)
-      .then((res) => console.log(res));
+      .then((res) => {});
   },
   getAdmins: () => {
     return axios("http://localhost:8080/super/dashboard").then(

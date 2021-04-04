@@ -1,24 +1,24 @@
-.bg-dark{
-    background-color: #FFA500 !important;
+.bg-dark {
+  background-color: #ffa500 !important;
 }
-.navbar-dark .navbar-brand{
-    color: #FFFFFF !important;
-    font-family: Rakkas !important;
-    font-size: 28px;
+.navbar-dark .navbar-brand {
+  color: #ffffff !important;
+  font-family: Rakkas !important;
+  font-size: 28px;
 }
-.nav-link{
-    font-size: 18px !important;
-    color:rgba(255, 255, 255, 0.7) !important;
+.nav-link {
+  font-size: 18px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
-.nav-link:hover{
-    color: #FFFFFF !important;
+.nav-link:hover {
+  color: #ffffff !important;
 }
-.navbar-toggler-icon{
-    color:rgba(255, 255, 255, 0.7) !important;
+.navbar-toggler-icon {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 @media only screen and (min-width: 700px) {
-    .navbar{
-        padding :.5rem 2rem !important;
-    }
+  .navbar {
+    padding: 0.5rem 2rem !important;
+  }
 }

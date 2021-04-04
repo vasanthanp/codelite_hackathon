@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import "./Usernavbar.css";
 
 export default function UserNavbar() {
-  // let Logout = (e) => {
-  //   e.preventDefault();
-  //   localStorage.clear();
-  // };
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark bg-dark "

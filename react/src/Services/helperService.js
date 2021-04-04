@@ -101,30 +101,39 @@ const helperService = {
   adminDashboard: async () => {
     let email = localStorage.getItem("email");
     let res = await apiService.adminDashboard(email);
-    if (res.length > 0) {
-      console.log(res[0].adminID);
-      localStorage.setItem("adminId", res[0].adminID);
-    }
     return res;
   },
   addNewBikeAndSave: async (bikeDetail, props) => {
     let adminID = localStorage.getItem("adminId");
     bikeDetail.adminID = adminID;
     await apiService.addNewBikeAndSave(bikeDetail);
-    props.history.push("/");
+    props.history.push("/login");
+    setTimeout(() => {
+      props.history.push("/");
+    }, 1000);
   },
   editBikeandSave: async (bikeDetail, props) => {
     await apiService.editBikeandSave(bikeDetail);
+    props.history.push("/admin/dashboard");
     setTimeout(() => {
       props.history.push("/");
-    }, 1);
+    }, 1000);
   },
   DeletBike: async (id) => {
     await apiService.DeletBike(id);
   },
-  getAdminProfile : async()=>{
-    return apiService.getAdminProfile(localStorage.getItem("email"));
-},
+  getAdminProfile: async () => {
+    let res = await apiService.getAdminProfile(localStorage.getItem("email"));
+    localStorage.setItem("adminId", res.id);
+    return res;
+  },
+  adminEditProfile: async (profileObj, props) => {
+    if (profileObj.email != localStorage.getItem("email")) {
+      localStorage.setItem("email", profileObj.email);
+    }
+    await apiService.adminEditProfile(profileObj);
+    props.history.push("/admin/profile/");
+  },
   getAdminBikes: async () => {
     let adminId = localStorage.getItem("adminId");
     return apiService.getAdminBikes(adminId);
@@ -139,7 +148,6 @@ const helperService = {
     return await apiService.companyDetailWithAdminId(compId);
   },
   bikesWithAdminId: async (email) => {
-    // console.log(email)
     return await apiService.bikesWithAdminId(email);
   },
   bikeDetailWithBikeId: async (bikeID) => {
@@ -154,8 +162,9 @@ const helperService = {
   userBookings: async () => {
     return await apiService.userBookings();
   },
-  bookBike: async (bikeDetail) => {
-    return await apiService.bookBike(bikeDetail);
+  bookBike: async (bikeDetail, props) => {
+    await apiService.bookBike(bikeDetail);
+    props.history.push("/user/dashboard");
   },
   getAdmins: async () => {
     return await apiService.getAdmins();

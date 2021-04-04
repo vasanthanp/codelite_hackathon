@@ -1,142 +1,133 @@
-#companyNames{
-  font-family: 'Merienda One', cursive;
+#companyNames {
+  font-family: "Merienda One", cursive;
 }
 
 @media only screen and (max-width: 400px) {
-    #companyNames{
-      font-size: 28px;
-    }
-    .alignment
-    {
-      font-size:14px;
-    }
-    .earnings-alignment h4{
-      font-size:18px;
-    }
+  #companyNames {
+    font-size: 28px;
   }
-  .earnings-alignment
-  {
-    text-align: center;
-    font-weight: 500;
-    background-color: #F2F2F2;
-    border-radius: 20px;
+  .alignment {
+    font-size: 14px;
   }
-  .earnings-alignment #companyNames{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 40px;
-    line-height: 58px;
+  .earnings-alignment h4 {
+    font-size: 18px;
   }
+}
+.earnings-alignment {
+  text-align: center;
+  font-weight: 500;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+}
+.earnings-alignment #companyNames {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 40px;
+  line-height: 58px;
+}
 
-  #status
-  {
-    background-color:#F21B1B;
-    border-top-right-radius: 12px;
-    border-top-left-radius: 12px;
-    padding-left:20px;
-    padding-right:20px;
-    color:white;
-  }
-  #colors
-  {
-    margin-left: 10px;
-    background: #F2F2F2;
-    border-radius: 15px;
-  }
-  .editbtn{
-      color: aliceblue;
-      width: 100px;
-      height: 45px;
-      background: #FFA500;
-      opacity: 0.85;
-      border-radius: 15px;
-  }
-  .deletebtn{
-    color: aliceblue;
-    border-radius: 12px;
-    width: 100px;
-    height: 45px;
+#status {
+  background-color: #f21b1b;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+}
+#colors {
+  margin-left: 10px;
+  background: #f2f2f2;
+  border-radius: 15px;
+}
+.editbtn {
+  color: aliceblue;
+  width: 100px;
+  height: 45px;
+  background: #ffa500;
+  opacity: 0.85;
+  border-radius: 15px;
+}
+.deletebtn {
+  color: aliceblue;
+  border-radius: 12px;
+  width: 100px;
+  height: 45px;
+  margin-left: 2rem;
+  background: #ff0000;
+  border-radius: 15px;
+}
+
+.addbike {
+  color: aliceblue;
+  width: 200px;
+  border-radius: 12px;
+}
+#conmpanyName p {
+  font-family: Red Hat Text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+}
+#addbike {
+  color: white;
+}
+@media (max-width: 768px) {
+  .deletebtn {
+    border-radius: 10px;
+    width: 50px;
+    height: 40px;
     margin-left: 2rem;
-    background: #FF0000;
-    border-radius: 15px;
-    
-}
-
-.addbike{
-    color: aliceblue;
-    width:200px;
-    border-radius:12px ;
-}
-#conmpanyName p{
-    font-family: Red Hat Text;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    
-}
-#addbike{
-    color:white;
-}
- @media(max-width:768px){
-      .deletebtn{
-          border-radius: 10px;
-         width: 50px;
-         height: 40px;
-         margin-left: 2rem;
-      }
-      .editbtn{
-        border-radius: 10px;
-        width:50px;
-        height: 40px;
-        margin-left: 2rem;
-      }
   }
-
-  @media(max-width:800px){
-    .deletebtn{
-        border-radius: 10px;
-       width: 100px;
-       height: 50px;
-       margin-left: 2rem;
-    }
-    .editbtn{
-      border-radius: 10px;
-      width:100px;
-      height: 50px;
-      margin-left: 2rem;
-    }
-}
-@media(max-width:486px){
-    .deletebtn{
-        border-radius: 10px;
-       width: 60px;
-       height: 40px;
-       margin-left: 1rem;
-    }
-    .editbtn{
-      border-radius: 10px;
-      width:60px;
-      height: 40px;
-      margin-left: 1rem;
-    }
+  .editbtn {
+    border-radius: 10px;
+    width: 50px;
+    height: 40px;
+    margin-left: 2rem;
+  }
 }
 
-@media(max-width:360px){
-    .deletebtn{
-        border-radius: 10px;
-       width: 50px;
-       height: 40px;
-       margin-left: 1rem;
-    }
-    .editbtn{
-      border-radius: 10px;
-      width:50px;
-      height: 40px;
-      margin-left: 1rem;
-    }
-    #companyNames{
-        font-size: 30px;
-    }
+@media (max-width: 800px) {
+  .deletebtn {
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    margin-left: 2rem;
+  }
+  .editbtn {
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 486px) {
+  .deletebtn {
+    border-radius: 10px;
+    width: 60px;
+    height: 40px;
+    margin-left: 1rem;
+  }
+  .editbtn {
+    border-radius: 10px;
+    width: 60px;
+    height: 40px;
+    margin-left: 1rem;
+  }
 }
 
-
-  
+@media (max-width: 360px) {
+  .deletebtn {
+    border-radius: 10px;
+    width: 50px;
+    height: 40px;
+    margin-left: 1rem;
+  }
+  .editbtn {
+    border-radius: 10px;
+    width: 50px;
+    height: 40px;
+    margin-left: 1rem;
+  }
+  #companyNames {
+    font-size: 30px;
+  }
+}
