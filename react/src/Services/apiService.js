@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const apiService = {
     superlogin : (val)=>{
@@ -85,6 +85,16 @@ const apiService = {
             })
         );
     },
+    getAdminProfile : (email)=>{
+        console.log(email);
+        return(
+            axios.post('http://localhost:8080/admin/profile', {email})
+            .then((res)=>{
+                console.log(res.data);
+                return res.data;
+            })
+        );
+    },
     getBikeDetais : (id)=>{
         return(
             axios.post('http://localhost:8080/user/bikeDetails', {id})
@@ -134,6 +144,22 @@ const apiService = {
     bookBike : (bikeDetail) => {
         return axios.post("http://localhost:8080/user/bookBike",bikeDetail)
         .then(res => console.log(res)) 
-    }
+    },
+
+  getAdmins: () => {
+    return axios("http://localhost:8080/super/dashboard").then(
+      (res) => res.data
+    );
+  },
+  deleteAdmin: (adminId) => {
+    return axios
+      .post("http://localhost:8080/super/deleteAdmin", { id: adminId })
+      .then((res) => res.data);
+  },
+  getAllBookings: () => {
+    return axios("http://localhost:8080/super/allBookings").then(
+      (res) => res.data
+    );
+  },
 };
 export default apiService;

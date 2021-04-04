@@ -38,6 +38,7 @@ public class AdminController {
 
     @PostMapping("/admin/bookings")
     public List<BookingsModel> userBookings(@RequestBody AdminModel user) {
+        System.out.println(user.getId());
         return adminService.getBookings(user);
     }
 

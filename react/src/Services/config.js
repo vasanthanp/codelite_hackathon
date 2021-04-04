@@ -36,6 +36,14 @@ const config = {
         bikeModel : "",
         type : "",
         price : "",
+    },
+    adminProfileObj : {
+        companyAddress : "",
+        companyName : "",
+        email : "",
+        mobileNumber : "",
+        sellerName : "",
+        password : "",
     }
 }
 export default config;

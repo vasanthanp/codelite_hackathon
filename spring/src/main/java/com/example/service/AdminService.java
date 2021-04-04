@@ -25,6 +25,10 @@ public class AdminService {
     @Autowired
     BookingsRepository bookingsRepository;
 
+    public List<AdminModel> getAllAdmins(){
+        return adminRepository.findAll();
+    }
+
     public AdminModel getAdmin(String email) {
         List<AdminModel> admins = adminRepository.findAll();
         for (AdminModel admin : admins) {
@@ -78,13 +82,15 @@ public class AdminService {
     public List<BookingsModel> getBookings(AdminModel data) {
         List<BookingsModel> bookings = bookingsRepository.findAll();
         List<BookingsModel> userBookings = new ArrayList<>();
-        for (BookingsModel booking : bookings) {
-            BikeModel bike = bikeRepository.findById(booking.getBikeID()).get();
-            AdminModel admin = adminRepository.findById(bike.getAdminID()).get();
-            if (admin.getId().equals(data.getId())) {
-                userBookings.add(booking);
+        try{
+            for (BookingsModel booking : bookings) {
+                BikeModel bike = bikeRepository.findById(booking.getBikeID()).get();
+                AdminModel admin = adminRepository.findById(bike.getAdminID()).get();
+                if (admin.getId().equals(data.getId())) {
+                    userBookings.add(booking);
+                }
             }
-        }
+        }catch(Exception e) {}
         return userBookings;
     }    
 

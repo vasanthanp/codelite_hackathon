@@ -6,7 +6,7 @@ import com.example.model.AdminModel;
 import com.example.model.BookingsModel;
 import com.example.model.UserModel;
 import com.example.service.SuperAdminService;
-
+import com.example.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("http://localhost:8081")
 @RestController
 public class SuperAdminController {
-    
+    @Autowired
+    protected AdminService adminService;
     @Autowired
     protected SuperAdminService superAdminService;
 
@@ -35,5 +36,8 @@ public class SuperAdminController {
     public List<BookingsModel> getAllBookings() {
         return superAdminService.getAllBookings();
     }
-
+    @GetMapping("/super/dashboard")
+    public List<AdminModel> getAllAdmins(){
+        return adminService.getAllAdmins();
+    }
 }
