@@ -32,6 +32,7 @@ const apiService = {
     return axios
       .post("http://localhost:8080/admin/dashboard", { email: val })
       .then((res) => {
+        console.log(res);
         return res.data;
       });
   },

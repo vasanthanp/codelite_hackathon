@@ -3,7 +3,6 @@ package com.example.controller;
 import java.util.List;
 
 import com.example.model.AdminModel;
-import com.example.model.BookingsModel;
 import com.example.model.UserModel;
 import com.example.service.SuperAdminService;
 import com.example.service.AdminService;
@@ -33,7 +32,7 @@ public class SuperAdminController {
     }
 
     @GetMapping("/super/allBookings")
-    public List<BookingsModel> getAllBookings() {
+    public List<List<Object>> getAllBookings() {
         return superAdminService.getAllBookings();
     }
     @GetMapping("/super/dashboard")

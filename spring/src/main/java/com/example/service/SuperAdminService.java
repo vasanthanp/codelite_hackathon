@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.model.AdminModel;
@@ -76,8 +77,23 @@ public class SuperAdminService {
         return userRepository.findAll();
     }
 
-    public List<BookingsModel> getAllBookings() {
-        return bookingsRepository.findAll();
+    public List<List<Object>> getAllBookings() {
+        List<BookingsModel> bookings =  bookingsRepository.findAll();
+        List<List<Object>> allBookings = new ArrayList<>(bookings.size());
+        for(BookingsModel booking : bookings) {
+            BikeModel bike = bikeRepository.findById(booking.getBikeID()).get();
+            AdminModel admin = adminRepository.findById(bike.getAdminID()).get();
+            List<Object> l = new ArrayList<>();
+            l.add(booking.getId());
+            l.add(admin.getSellerName());
+            l.add(booking.getCompanyName());
+            l.add(booking.getBikeModel());
+            l.add(booking.getRent());
+            l.add(booking.getDays());
+            l.add(booking.getTotalPrice());
+            allBookings.add(l);
+        }
+        return allBookings;
     }
 
 }
