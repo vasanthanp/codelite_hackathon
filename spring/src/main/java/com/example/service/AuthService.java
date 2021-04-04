@@ -71,7 +71,7 @@ public class AuthService {
     public boolean isUserPresent(LoginModel data) {
         List<UserModel> users = userRepository.findAll();
         for (UserModel user : users) {
-            if (user.getEmail().equals(data.getEmail()) && passwordconfig.checkPass(data.getPassword(), user.getPassword()));
+            if (user.getEmail().equals(data.getEmail()) && passwordconfig.checkPass(data.getPassword(), user.getPassword()))
                 return true;
         }
         return false;
@@ -80,7 +80,7 @@ public class AuthService {
     public boolean isAdminPresent(LoginModel data) {
         List<AdminModel> admins = adminRepository.findAll();
         for (AdminModel admin : admins) {
-            if (admin.getEmail().equals(data.getEmail()) && passwordconfig.checkPass(data.getPassword(), admin.getPassword()));
+            if (admin.getEmail().equals(data.getEmail()) && passwordconfig.checkPass(data.getPassword(), admin.getPassword()))
                 return true;
         }
         return false;
