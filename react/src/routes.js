@@ -50,9 +50,7 @@ const routes = (
       <UserBooking />
     </Route>
 
-    <Route exact path="/superadmin/login">
-      <SuperAdminLogin />
-    </Route>
+    <Route exact path="/superadmin/login" component={SuperAdminLogin} />
     <Route exact path="/superadmin/adminList">
       <SuperAdminDashboard />
     </Route>

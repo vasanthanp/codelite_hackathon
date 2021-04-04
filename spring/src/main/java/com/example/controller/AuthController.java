@@ -28,7 +28,7 @@ public class AuthController {
         return authservice.isAdminPresent(data);
     }
 
-    @PostMapping("/superadmin/login")
+    @PostMapping("/super/login")
     public boolean isSuperAdminPresent(@RequestBody SuperAdminModel data) {
         return authservice.isSuperAdminPresent(data);
     }

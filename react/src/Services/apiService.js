@@ -3,7 +3,7 @@ import axios from 'axios';
 const apiService = {
     superlogin : (val)=>{
         return (
-            axios.post('http://localhost:8080/super/login', val)
+            axios.post('http://localhost:8080/super/login', {...val , id : 1})
             .then((res)=>{
                 console.log(res.data);
                 return res.data;
@@ -83,11 +83,17 @@ const apiService = {
     userDetailsWithEmail : () => {
         const email = localStorage.getItem("email");
         return axios.post("http://localhost:8080/user/profile",{email})
-        .then(res => localStorage.setItem("userID", res.data.id))
+        .then(res => {
+            localStorage.setItem("userID", res.data.id)
+            return res.data;
+        })
     },
     updateUserWithId : (user) => {
         return axios.put("http://localhost:8080/user/edit",user)
-        .then(res => res.data);
+        .then(res => {
+            localStorage.setItem("email", res.data.email)
+            return res.data
+        });
     },
     userBookings : () => {
         return axios.post("http://localhost:8080/user/bookings",{email:localStorage.getItem("email")})
