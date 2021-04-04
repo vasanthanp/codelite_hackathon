@@ -20,7 +20,7 @@ export default function AdminNavbar(props) {
                     <Link className="nav-link" to={`/admin/profile/${123}`} id="userProfileList"><i className="fa fa-user-circle"></i> Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to={`/admin/bookings/${123}`} id="userBookingList"><i className="fa fa-book"></i> Booking</Link>
+                    <Link className="nav-link" to={`/admin/bookings/`} id="userBookingList"><i className="fa fa-book"></i> Booking</Link>
                 </li>
             </ul>
             <span className=" my-2 my-lg-0">

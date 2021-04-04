@@ -90,7 +90,6 @@ public class AuthService {
         SuperAdminModel superadmin = superAdminRepository.findById(data.getId()).get();
         if (superadmin.getEmail().equals(data.getEmail()) && superadmin.getPassword().equals(data.getPassword()))
             return true;
-
         return false;
     }
 }

@@ -1,11 +1,13 @@
 package com.example.service;
 
 import com.example.model.BikeModel;
+import com.example.model.BookingsModel;
 
 import java.util.List;
 
 // import com.example.repository.AdminRepository;
 import com.example.repository.BikeRepository;
+import com.example.repository.BookingsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,8 @@ import org.springframework.stereotype.Service;
 public class BikeService {
     @Autowired
     private BikeRepository bikeRepository;
+    @Autowired
+    private BookingsRepository bookingsRepository;
 
     public BikeModel isBikePresent(BikeModel data) {
         List<BikeModel> bikes = bikeRepository.findAll();
@@ -51,10 +55,18 @@ public class BikeService {
         return bike;
     }
 
+    public void deleteBikeBookings(Long id) {
+        List<BookingsModel> bookings = bookingsRepository.findAll();
+        for(BookingsModel booking : bookings) {
+            if(booking.getBikeID().equals(id)) bookingsRepository.delete(booking);
+        }
+    }
+
     public boolean deleteBike(BikeModel data) {
         try {
             BikeModel bike = bikeRepository.findById(data.getId()).get();
             if (bike != null) {
+                deleteBikeBookings(data.getId());
                 bikeRepository.delete(bike);
                 return true;
             }

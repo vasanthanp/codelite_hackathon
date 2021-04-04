@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./AdminBooking.css";
 import AdminNavbar from "../AdminNavbar/AdminNavbar"
+import helperService from "../../../Services/helperService";
 const AdminBookings = () => {
+  const [bikeList, setBikelist] = useState([]);
+  let getBikeList = async()=>{
+    setBikelist(await helperService.getAdminBikes());
+  }
+  useEffect(() => {
+    getBikeList();
+  }, [])
   return (
     <>
     <AdminNavbar />

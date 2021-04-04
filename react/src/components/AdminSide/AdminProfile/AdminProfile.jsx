@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import helperService from "../../../Services/helperService";
 import UserNavbar from "../AdminNavbar/AdminNavbar";
 import "./AdminProfile.css";
 
 export default function AdminProfile() {
+  const [proDetails, setProDetails] = useState({});
+  let getAdminProfile = async()=>{
+    setProDetails(await helperService.getAdminProfile());
+  }
+  useEffect(() => {
+    getAdminProfile();
+  }, [])
   return (
     <div>
       <UserNavbar />

@@ -29,11 +29,9 @@ const routes = (
     <Route exact path="/admin/editprofile/:adminId">
       <AdminEditProfile />{" "}
     </Route>
-    <Route exact path="/admin/bookings/:adminId">
-      <AdminBooking />
-    </Route>
+    <Route exact path="/admin/bookings/" component={AdminBooking} />  
     <Route exact path="/admin/dashboard" component={AdminDashboard}></Route>
-    <Route exact path="/admin/editBike" component={EditBike}></Route>
+    <Route exact path="/admin/editBike/:id" component={EditBike}></Route>
     <Route exact path="/admin/addBike" component={AddNewBike}></Route>
 
     <Route exact path="/user/dashboard" component={UserDashboard} />
@@ -50,9 +48,7 @@ const routes = (
       <UserBooking />
     </Route>
 
-    <Route exact path="/superadmin/login">
-      <SuperAdminLogin />
-    </Route>
+    <Route exact path="/superadmin/login" component={SuperAdminLogin} />
     <Route exact path="/superadmin/adminList">
       <SuperAdminDashboard />
     </Route>
