@@ -14,14 +14,7 @@ function EditBike(props) {
         try {
             //setBikelist(await helperService.adminDashboard());
             let res = await helperService.getBikeDetails(id);
-            console.log(res);
-            bikeDetail.id = id;
-            bikeDetail.adminID = res.adminID;
-            bikeDetail.bikeModel = res.bikeModel;
-            bikeDetail.price=res.price;
-            bikeDetail.type=res.type;
-            bikeDetail.status=res.status;
-            console.log(bikeDetail);
+            setBikeDetail(res);
 
         }catch(err){
             let e = "" + err; 
@@ -46,7 +39,7 @@ function EditBike(props) {
         try{
             validation();
             bikeDetail.id = id;
-            //await helperService.editBikeandSave(bikeDetail,props);
+            await helperService.editBikeandSave(bikeDetail,props);
         }
         catch(err){
             let e = "" + err; 
@@ -60,22 +53,22 @@ function EditBike(props) {
         <div > 
             <AdminNavbar/>
             <div className="row container-fluid">
-                <div class="col-md-5 offset-sm-3 my-5">
+                <div className="col-md-5 offset-sm-3 my-5">
                     <div className="card offset-sm-3" id="editBikeBox">
                         <div className="card-body">
-                            <Link to="/admin/dashboard"><p className="backtodashboard" align="left"><i class="fa fa-chevron-left"></i> back</p></Link>
+                            <Link to="/admin/dashboard"><p className="backtodashboard" align="left"><i className="fa fa-chevron-left"></i> back</p></Link>
                             <form>
                                 <div className="form-group">
                                     <label>Bike Model</label>
-                                    <input type="text" className="form-control" id="bikeModel"  name="bikeModel"  onChange={(e)=>{setBikeDetail({...bikeDetail, bikeModel:e.target.value})}} value={bikeDetail.bikeModel}   ></input>
+                                    <input type="text" className="form-control" id="bikeModel"  name="bikeModel"  onChange={(e)=>{setBikeDetail({...bikeDetail, bikeModel:e.target.value})}} value={bikeDetail.bikeModel}  ></input>
                                 </div>
                                 <div className="form-group">
                                     <label>Bike Rent Price</label>
-                                    <input type="text" name="bikeRentPrice" id="bikePrice" className="form-control"  onChange={(e)=>{setBikeDetail({...bikeDetail, bikeModel:e.target.value})}} value={bikeDetail.price}  ></input>
+                                    <input type="text" name="bikeRentPrice" id="bikePrice" className="form-control"  onChange={(e)=>{setBikeDetail({...bikeDetail, price:e.target.value})}} value={bikeDetail.price}  ></input>
                                 </div>
                                 <div className="form-group">
                                     <label>Bike Type</label>
-                                    <input type="text" name="bike type" id="bikeType" className="form-control"  onChange={(e)=>{setBikeDetail({...bikeDetail, bikeModel:e.target.value})}} value={bikeDetail.type}  ></input>
+                                    <input type="text" name="bike type" id="bikeType" className="form-control"  onChange={(e)=>{setBikeDetail({...bikeDetail, type:e.target.value})}} value={bikeDetail.type}  ></input>
                                 </div><br></br>
                                 
                                 <input type="submit"  onClick={(e)=>{editBike(e)}}  className="form-control col-sm-12" id="editBikeButton" value="Save Change" name="Save Change"></input><br></br>

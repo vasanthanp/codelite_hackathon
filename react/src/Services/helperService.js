@@ -5,7 +5,6 @@ const helperService = {
     const isLogin = localStorage.getItem("email") !== null;
     const userRole = localStorage.getItem("userRole");
     const currentroute = window.location.pathname;
-    // console.log(currentroute.substring(0,11));
     if (!isLogin) {
       if (
         currentroute !== "/login" ||
@@ -113,6 +112,19 @@ const helperService = {
     bikeDetail.adminID = adminID;
     await apiService.addNewBikeAndSave(bikeDetail);
     props.history.push("/");
+  },
+  editBikeandSave: async (bikeDetail, props) => {
+    await apiService.editBikeandSave(bikeDetail);
+    setTimeout(() => {
+      props.history.push("/");
+    }, 1);
+  },
+  DeletBike: async (id) => {
+    await apiService.DeletBike(id);
+  },
+  getAdminBikes: async () => {
+    let adminId = localStorage.getItem("adminId");
+    return apiService.getAdminBikes(adminId);
   },
   getBikeDetails: async (id) => {
     return await apiService.getBikeDetais(id);

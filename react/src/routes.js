@@ -29,9 +29,7 @@ const routes = (
     <Route exact path="/admin/editprofile/:adminId">
       <AdminEditProfile />{" "}
     </Route>
-    <Route exact path="/admin/bookings/:adminId">
-      <AdminBooking />
-    </Route>
+    <Route exact path="/admin/bookings/" component={AdminBooking} />  
     <Route exact path="/admin/dashboard" component={AdminDashboard}></Route>
     <Route exact path="/admin/editBike/:id" component={EditBike}></Route>
     <Route exact path="/admin/addBike" component={AddNewBike}></Route>

@@ -22,6 +22,10 @@ export default function AdminDashboard() {
   useEffect(() => {
     getCompanyBikes();
   }, [])
+  let deleteBike = (id)=>{
+     helperService.DeletBike(id);
+     setBikelist(bikelist.filter((ele)=>ele.id != id));
+  };
   return (
     <>
       <AdminNavbar />
@@ -49,7 +53,7 @@ export default function AdminDashboard() {
                              <i className="fa fa-edit"></i>
                            </button>
                          </Link>
-                         <button className="right btn deletebtn">
+                         <button className="right btn deletebtn" onClick={()=>deleteBike(bike.id)}>
                            <i className="fa fa-trash"></i>
                          </button>
                        </p>

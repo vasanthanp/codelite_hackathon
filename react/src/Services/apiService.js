@@ -2,7 +2,6 @@ import axios from "axios";
 
 const apiService = {
   superlogin: (val) => {
-    console.log(val);
     return axios
       .post("http://localhost:8080/super/login", { ...val, id: 1 })
       .then((res) => {
@@ -11,13 +10,11 @@ const apiService = {
   },
   userlogin: (val) => {
     return axios.post("http://localhost:8080/user/login", val).then((res) => {
-      console.log(res.data);
       return res.data;
     });
   },
   adminlogin: (val) => {
     return axios.post("http://localhost:8080/admin/login", val).then((res) => {
-      console.log(res.data);
       return res.data;
     });
   },
@@ -27,9 +24,7 @@ const apiService = {
     });
   },
   adminsignup: (val) => {
-    console.log(val);
     return axios.post("http://localhost:8080/admin/signup", val).then((res) => {
-      console.log(res.data);
       return res.data;
     });
   },
@@ -37,26 +32,40 @@ const apiService = {
     return axios
       .post("http://localhost:8080/admin/dashboard", { email: val })
       .then((res) => {
-        console.log(res);
         return res.data;
       });
   },
   addNewBikeAndSave: (val) => {
-    axios.post("http://localhost:8080/bike/save", val).then((res) => {
-      console.log(res.data);
-    });
+    axios.post("http://localhost:8080/bike/save", val).then((res) => {});
   },
+  editBikeandSave :(val)=>{
+    axios.put('http://localhost:8080/bike/edit', val)
+    .then((res)=>{
+        console.log(res.data);
+    })
+},
+DeletBike :(id)=>{
+    return(
+        axios.post('http://localhost:8080/bike/delete', {id})
+        .then((res)=>{
+            console.log(res.data);
+        })
+    );
+},
+  getAdminBikes : (id)=>{
+    console.log(id);
+    return(
+        axios.post('http://localhost:8080/admin/bookings', {"id":Number(id)})
+        .then((res)=>res.data)
+    );
+},
   getBikeDetais: (id) => {
     return axios
       .post("http://localhost:8080/user/bikeDetails", { id })
-      .then((res) => {
-        console.log(res.data);
-        return res.data;
-      });
+      .then((res) => res.data);
   },
   userDashboard: () => {
     return axios("http://localhost:8080/user/dashboard").then((res) => {
-      console.log(res.data);
       return res.data;
     });
   },
@@ -64,6 +73,11 @@ const apiService = {
     return axios(`http://localhost:8080/user/companyDetail/${compId}`).then(
       (res) => res.data
     );
+  },
+  bikesWithAdminId: (email) => {
+    return axios
+      .post("http://localhost:8080/admin/dashboard", email)
+      .then((res) => res.data);
   },
   bikesWithAdminId: (email) => {
     return axios
