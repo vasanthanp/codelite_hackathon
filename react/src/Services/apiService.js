@@ -61,6 +61,30 @@ const apiService = {
             console.log(res.data);
         })
     },
+    editBikeandSave :(val)=>{
+        axios.put('http://localhost:8080/bike/edit', val)
+        .then((res)=>{
+            console.log(res.data);
+        })
+    },
+    DeletBike :(id)=>{
+        return(
+            axios.post('http://localhost:8080/bike/delete', {id})
+            .then((res)=>{
+                console.log(res.data);
+            })
+        );
+    },
+    getAdminBikes : (id)=>{
+        console.log(id);
+        return(
+            axios.post('http://localhost:8080/admin/bookings', {"id":Number(id)})
+            .then((res)=>{
+                console.log(res.data);
+                return res.data;
+            })
+        );
+    },
     getBikeDetais : (id)=>{
         return(
             axios.post('http://localhost:8080/user/bikeDetails', {id})
@@ -109,7 +133,7 @@ const apiService = {
     },
     bookBike : (bikeDetail) => {
         return axios.post("http://localhost:8080/user/bookBike",bikeDetail)
-        .then(res => console.log(res))
+        .then(res => console.log(res)) 
     }
 };
 export default apiService;

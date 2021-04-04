@@ -93,7 +93,18 @@ const helperService = {
         let adminID = localStorage.getItem("adminId");
         bikeDetail.adminID = adminID;
         await apiService.addNewBikeAndSave(bikeDetail);
-        props.history.push("/");       
+        setTimeout(()=>{ props.history.push("/")} ,1);      
+    },
+    editBikeandSave : async(bikeDetail,props) =>{
+        await apiService.editBikeandSave(bikeDetail);
+        setTimeout(()=>{ props.history.push("/")} ,1);   
+    },
+    DeletBike  : async(id)=>{
+        await apiService.DeletBike(id);
+    },
+    getAdminBikes : async()=>{
+        let adminId = localStorage.getItem("adminId");
+        return apiService.getAdminBikes(adminId);
     },
     getBikeDetails : async(id)=>{
         return await apiService.getBikeDetais(id);
