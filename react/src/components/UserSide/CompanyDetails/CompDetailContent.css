@@ -1,0 +1,170 @@
+@media only screen and (min-width: 1300px) {
+  #companyDetails {
+    padding: 2rem 3rem !important;
+  }
+  .Comp-Details {
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 2rem 3rem !important;
+    margin-bottom: 5vh !important;
+  }
+  .Comp-Details .comp-name {
+    font-size: 30px !important;
+  }
+  .Comp-Details .comp-address,
+  .Comp-Details .comp-number {
+    font-size: 21px !important;
+  }
+  #companyDetails .bike-detail {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 2vh 1vh;
+    margin-bottom: 1rem !important;
+    border-radius: 7px !important;
+  }
+  .bike-modal {
+    font-size: 26px !important;
+  }
+  .bike-otherDetail {
+    font-size: 23px !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #companyDetails {
+    padding: 2rem;
+  }
+  .Comp-Details {
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 2rem 3rem !important;
+    margin-bottom: 2vh !important;
+  }
+  .Comp-Details .comp-name {
+    font-size: 28px;
+  }
+  .Comp-Details .comp-address,
+  .Comp-Details .comp-number {
+    font-size: 20px;
+  }
+  #companyDetails .bike-detail {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 2vh 1vh;
+    margin-bottom: 1rem !important;
+    border-radius: 7px !important;
+  }
+  .bike-modal {
+    font-size: 23px;
+  }
+  .bike-otherDetail {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  #companyDetails {
+    padding: 1rem !important;
+    overflow: hidden;
+  }
+  .Comp-Details {
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 2rem 3rem !important;
+    margin: 2vh 0 !important;
+  }
+  .Comp-Details .comp-name {
+    font-size: 25px !important;
+  }
+  .Comp-Details .comp-address,
+  .Comp-Details .comp-number {
+    font-size: 19px !important;
+  }
+  #companyDetails .bike-detail {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 2vh 1vh;
+    margin-bottom: 1rem !important;
+    border-radius: 7px !important;
+  }
+  .bike-modal {
+    font-size: 20px !important;
+  }
+  .bike-otherDetail {
+    font-size: 19px !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #companyDetails {
+    padding: 0rem !important;
+    overflow: hidden !important;
+  }
+  .Comp-Details {
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 1.5rem !important;
+    margin: 1vh 0 !important;
+  }
+  .Comp-Details .comp-name {
+    font-size: 23px !important;
+  }
+  .Comp-Details .comp-address,
+  .Comp-Details .comp-number {
+    font-size: 17px !important;
+  }
+  #companyDetails .bike-detail {
+    text-align: center;
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 2vh 1vh;
+    margin-bottom: 1rem !important;
+    min-width: 768px !important;
+    border-radius: 7px !important;
+  }
+  .bikes-details {
+    overflow-x: scroll !important;
+  }
+  .bike-modal {
+    font-size: 19px !important;
+  }
+  .bike-otherDetail {
+    font-size: 17px !important;
+  }
+}
+/* #companyDetails{
+    padding: 1rem  ;
+    overflow: hidden;
+}
+.Comp-Details{
+    text-align: center;
+}
+.Comp-Details{
+    padding: 1rem ;
+    margin-bottom: 1vh ;
+}
+.Comp-Details .comp-name{
+    font-size: 25px ;
+}
+.Comp-Details .comp-address , .Comp-Details  .comp-number{
+    font-size: 19px ;
+}
+#companyDetails .bike-detail{
+    text-align: center;    
+    min-width: 768 !important;
+}
+.bikes-details{
+    overflow-x: scroll !important;
+}
+.bike-modal{
+    font-size: 20px ;
+    margin-bottom: 2rem ;
+}
+.bike-otherDetail{
+    font-size: 19px ;
+} */
+a {
+  color: black !important;
+  text-decoration: none !important;
+}

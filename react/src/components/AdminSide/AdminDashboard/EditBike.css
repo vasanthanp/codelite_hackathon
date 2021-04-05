@@ -1,0 +1,28 @@
+#editBikeBox {
+  background-color: #e6e6e6;
+  border-radius: 8px;
+}
+#bikeModel {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#bikePrice {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#bikeType {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+
+#editBikeButton {
+  background-color: #ffa500;
+  height: 45px;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+}
+.backtodashboard {
+  color: black;
+  text-decoration: none;
+}

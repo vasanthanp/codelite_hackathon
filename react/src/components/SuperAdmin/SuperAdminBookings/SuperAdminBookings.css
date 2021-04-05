@@ -1,0 +1,34 @@
+.bookings .lists {
+  overflow-x: scroll;
+}
+.bookings .lists::-webkit-scrollbar {
+  display: none;
+}
+.bookings .list:first-child {
+  background-color: #ffa500;
+  border-radius: 12px 12px 0px 0px;
+  color: #fff;
+}
+.bookings .list {
+  background-color: #f2f2f2;
+  height: 60px;
+}
+.bookings .list h3 {
+  font-size: 19px;
+}
+@media (max-width: 768px) {
+  .bookings .list h3 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .bookings .list {
+    width: fit-content;
+  }
+  .bookings .list h3 {
+    font-size: 14px;
+  }
+}
+.super-book-row {
+  min-width: 500px;
+}

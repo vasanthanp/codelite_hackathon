@@ -1,0 +1,112 @@
+.inpbg {
+  border-radius: 50px;
+  background-color: #c4c4c4;
+}
+
+#signupcard {
+  background-color: #e6e6e6;
+  border-radius: 8px;
+  width: 100%;
+}
+#signupcard1 {
+  background-color: #e6e6e6;
+  border-radius: 8px;
+  width: 100%;
+}
+#email {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#password {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#mobilenumber {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#userrole {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#username {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#age {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#sellername {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#companyImgUrl {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#companyname {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+#companyAddress {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+
+#submitbutton {
+  background-color: #ffa500;
+  height: 45px;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+}
+@media only screen and (min-width: 1300px) {
+  #signupcard {
+    max-width: 640px !important;
+    margin-top: 5.5vw !important;
+    margin-left: 31vw !important;
+  }
+  #signupcard1 {
+    max-width: 640px !important;
+    margin-top: 2.5vw !important;
+    margin-left: 31vw !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #signupcard {
+    max-width: 640px;
+    margin-top: 6vw;
+    margin-left: 22vw;
+  }
+  #signupcard1 {
+    max-width: 640px;
+    margin-top: 3vw;
+    margin-left: 22vw;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  #signupcard {
+    max-width: 640px;
+    margin-top: 8.5vw;
+    margin-left: 16vw;
+  }
+  #signupcard1 {
+    max-width: 640px;
+    margin-top: 5.5vw;
+    margin-left: 16vw;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #signupcard {
+    margin-top: 16vw !important;
+    margin-left: 0vw !important;
+  }
+  #signupcard1 {
+    margin-top: 6vw !important;
+    margin-left: 0vw !important;
+  }
+}
+#loginLink {
+  color: rgb(27, 163, 253) !important;
+}

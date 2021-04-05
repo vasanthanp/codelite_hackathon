@@ -1,0 +1,107 @@
+.container-dashboardContent {
+  padding: 1rem 0rem;
+}
+.user-dash-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.user-dash-company-name {
+  padding-left: 5px;
+  font-size: 15px;
+  position: relative;
+  bottom: -3px;
+}
+.user-dash-company-address,
+.user-dash-company-number {
+  font-size: 15px;
+  position: relative;
+  bottom: -12.5px;
+}
+.user-company-row {
+  margin-bottom: 10px;
+  min-width: 586px;
+  background-color: #f2f2f2;
+  padding: 8px;
+  border-radius: 10px;
+}
+a {
+  color: black !important;
+  text-decoration: none !important;
+}
+@media only screen and (min-width: 930px) {
+  .container-dashboardContent {
+    padding: 2rem 2rem !important;
+  }
+  .user-dash-img {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+  }
+  .user-dash-company-name {
+    padding-left: 15px !important;
+    font-size: 20px !important;
+    position: relative;
+    bottom: -3px !important;
+  }
+  .user-dash-company-address,
+  .user-dash-company-number {
+    font-size: 20px !important;
+    position: relative;
+    bottom: -15px !important;
+  }
+  .user-company-row {
+    margin-bottom: 10px !important;
+  }
+}
+@media only screen and (max-width: 929px) {
+  .container-dashboardContent {
+    padding: 1.5rem 1rem !important;
+  }
+  .user-dash-img {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+  }
+  .user-dash-company-name {
+    padding-left: 7px !important;
+    font-size: 17px !important;
+    position: relative;
+    bottom: -3px !important;
+  }
+  .user-dash-company-address,
+  .user-dash-company-number {
+    font-size: 17px !important;
+    position: relative;
+    bottom: -15px !important;
+  }
+  .user-company-row {
+    margin-bottom: 10px !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .container-dashboardContent {
+    padding: 1rem 0rem !important;
+    overflow-x: scroll;
+  }
+  .user-dash-img {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+  }
+  .user-dash-company-name {
+    padding-left: 5px !important;
+    font-size: 15px !important;
+    position: relative;
+    bottom: -3px !important;
+  }
+  .user-dash-company-address,
+  .user-dash-company-number {
+    font-size: 15px !important;
+    position: relative;
+    bottom: -12.5px !important;
+  }
+  .user-company-row {
+    margin-bottom: 10px !important;
+  }
+}
