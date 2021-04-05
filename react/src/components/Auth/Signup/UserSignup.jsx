@@ -48,13 +48,18 @@ function UserSignup(props) {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-sm-8 col-lg-7 my-5" id={styles.signupBox}>
+        <div
+          className="col-sm-8 col-lg-7 my-5"
+          data-testid="signupBox"
+          id={styles.signupBox}
+        >
           <div className="card" id={styles.signupcard}>
             <div className="card-body">
               <h1 align="center">SIGN UP</h1>
               <form>
                 <div className="form-group input-group-lg">
                   <input
+                    data-testid="email"
                     type="email"
                     className="form-control"
                     id={styles.email}
@@ -67,6 +72,7 @@ function UserSignup(props) {
                 </div>
                 <div className="form-group input-group-lg">
                   <input
+                    data-testid="password"
                     type="password"
                     name="password"
                     id={styles.password}
@@ -79,6 +85,7 @@ function UserSignup(props) {
                 </div>
                 <div className="form-group input-group-lg">
                   <input
+                    data-testid="mobilenumber"
                     type="number"
                     name="phoneNo"
                     id={styles.mobilenumber}
@@ -90,12 +97,17 @@ function UserSignup(props) {
                   ></input>
                 </div>
                 <div className="form-group input-group-lg">
-                  <select className="form-control" id={styles.userrole}>
+                  <select
+                    className="form-control"
+                    id={styles.userrole}
+                    data-testid="userrole"
+                  >
                     <option value="user">User</option>
                   </select>
                 </div>
                 <div className="form-group input-group-lg">
                   <input
+                    data-testid="username"
                     type="name"
                     name="name"
                     id={styles.username}
@@ -108,6 +120,7 @@ function UserSignup(props) {
                 </div>
                 <div className="form-group input-group-lg">
                   <input
+                    data-testid="age"
                     type="number"
                     name="age"
                     id={styles.age}
@@ -120,6 +133,7 @@ function UserSignup(props) {
                 </div>
 
                 <input
+                  data-testid="submitButton"
                   type="submit"
                   className="form-control col-sm-12"
                   id={styles.submitbutton}
@@ -129,7 +143,11 @@ function UserSignup(props) {
                 <br></br>
                 <p align="center">
                   Go to Login{" "}
-                  <Link to="/login" id={styles.loginLink}>
+                  <Link
+                    to="/login"
+                    data-testid="loginBox"
+                    id={styles.loginLink}
+                  >
                     Click Here{" "}
                   </Link>
                 </p>

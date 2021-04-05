@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 @RestController
 public class SuperAdminController {
     @Autowired

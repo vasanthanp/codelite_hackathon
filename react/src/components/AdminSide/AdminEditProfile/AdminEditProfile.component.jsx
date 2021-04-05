@@ -129,7 +129,6 @@ const AdminEditProfile = (props) => {
                 className="form-control col-11 mt-0 mb-3 py-3 px-4 text-dark"
                 name="adminPassword"
                 id="adminPassword"
-                value={proDetails.password}
                 onChange={(e) => {
                   setProDetails({ ...proDetails, password: e.target.value });
                 }}

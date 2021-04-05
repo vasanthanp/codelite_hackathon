@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.config.Passwordconfig;
 import com.example.model.AdminModel;
 import com.example.model.BikeModel;
 import com.example.model.BookingsModel;
@@ -24,6 +25,9 @@ public class AdminService {
 
     @Autowired
     BookingsRepository bookingsRepository;
+
+    @Autowired
+    Passwordconfig passwordconfig;
 
     public List<AdminModel> getAllAdmins() {
         return adminRepository.findAll();
@@ -67,12 +71,15 @@ public class AdminService {
     public AdminModel editAdmin(AdminModel data) {
         AdminModel admin = adminRepository.findById(data.getId()).get();
         admin.setEmail(data.getEmail());
+        if (!data.getPassword().equals(admin.getPassword())) {
+            data.setPassword(passwordconfig.hashPassword(data.getPassword()));
+        }
         admin.setPassword(data.getPassword());
         admin.setMobileNumber(data.getMobileNumber());
         admin.setSellerName(data.getSellerName());
         admin.setCompanyName(data.getCompanyName());
         admin.setCompanyAddress(data.getCompanyAddress());
-        admin = adminRepository.save(data);
+        admin = adminRepository.save(admin);
         return admin;
     }
 

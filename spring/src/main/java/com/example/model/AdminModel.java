@@ -15,7 +15,7 @@ public class AdminModel {
     private Long id;
     @Column(name = "email")
     private String email;
-    @Column(name = "password")
+    @Column(name = "password", columnDefinition = "TEXT")
     private String password;
     @Column(name = "mobileNumber")
     private String mobileNumber;
@@ -25,7 +25,7 @@ public class AdminModel {
     private String userRole;
     @Column(name = "companyName")
     private String companyName;
-    @Column(name = "companyImageURL")
+    @Column(name = "companyImageURL", columnDefinition = "TEXT")
     private String companyImageURL;
     @Column(name = "companyAddress")
     private String companyAddress;

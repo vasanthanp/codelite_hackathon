@@ -43,7 +43,7 @@ export default function AdminDashboard() {
   return (
     <>
       <AdminNavbar />
-      <div className="container-fluid mt-2">
+      <div className="container-fluid mt-2" data-testid = "adminDashboard" id="adminDashboard">
         <div className="row">
           <div className="col-lg-9 col-sm-12 my-3">
             <h2 id="companyNames" align="center">
@@ -53,7 +53,15 @@ export default function AdminDashboard() {
             {bikelist.map((bike) => {
               return (
                 <div className="container" id="align1" key={bike.id}>
-                  <span id="status">Booked</span>
+                  {bike.status === "true" ? (
+                    <span id="status" className="bg-danger">
+                      Booked
+                    </span>
+                  ) : (
+                    <span id="status" className="bg-success">
+                      Available
+                    </span>
+                  )}
                   <div className="row">
                     <div className="col-lg-12" id="colors">
                       <div className="col-lg-12">
@@ -116,7 +124,7 @@ export default function AdminDashboard() {
                 to={{ pathname: "/admin/addBike", routerpassVal: { bikelist } }}
                 id="addbike"
               >
-                <button type="button" className="btn btn-warning addbike">
+                <button type="button" className="btn btn-warning addbike" data-testid="addBikeButton" id="addBikeButton">
                   <i className="fa fa-plus-circle"></i> Add bike
                 </button>
               </Link>
