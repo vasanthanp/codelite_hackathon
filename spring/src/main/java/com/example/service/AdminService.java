@@ -71,7 +71,9 @@ public class AdminService {
     public AdminModel editAdmin(AdminModel data) {
         AdminModel admin = adminRepository.findById(data.getId()).get();
         admin.setEmail(data.getEmail());
-        data.setPassword(passwordconfig.hashPassword(data.getPassword()));
+        if (!data.getPassword().equals(admin.getPassword())) {
+            data.setPassword(passwordconfig.hashPassword(data.getPassword()));
+        }
         admin.setPassword(data.getPassword());
         admin.setMobileNumber(data.getMobileNumber());
         admin.setSellerName(data.getSellerName());

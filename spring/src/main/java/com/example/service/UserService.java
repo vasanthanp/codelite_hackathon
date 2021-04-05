@@ -75,7 +75,9 @@ public class UserService {
         UserModel user = userRepository.findById(data.getId()).get();
         user.setAge(data.getAge());
         user.setEmail(data.getEmail());
-        data.setPassword(passwordconfig.hashPassword(data.getPassword()));
+        if (!data.getPassword().equals(user.getPassword())) {
+            data.setPassword(passwordconfig.hashPassword(data.getPassword()));
+        }
         user.setPassword(data.getPassword());
         user.setMobileNumber(data.getMobileNumber());
         user.setUsername(data.getUsername());
