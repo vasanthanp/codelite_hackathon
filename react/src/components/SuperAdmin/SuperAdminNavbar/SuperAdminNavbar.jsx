@@ -39,7 +39,7 @@ const SuperAdminNavbar = () => {
               className="nav-link"
               id="userBookingList"
             >
-              My Booking
+              All Bookings
             </Link>
           </li>
         </ul>

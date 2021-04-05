@@ -3,6 +3,7 @@ package com.example.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.config.Passwordconfig;
 import com.example.model.AdminModel;
 import com.example.model.BikeModel;
 import com.example.model.BookingsModel;
@@ -30,6 +31,9 @@ public class UserService {
 
     @Autowired
     BookingsRepository bookingsRepository;
+
+    @Autowired
+    Passwordconfig passwordconfig;
 
     public List<AdminModel> getCompanies() {
         return adminRepository.findAll();
@@ -69,9 +73,9 @@ public class UserService {
 
     public UserModel editUser(UserModel data) {
         UserModel user = userRepository.findById(data.getId()).get();
-
         user.setAge(data.getAge());
         user.setEmail(data.getEmail());
+        data.setPassword(passwordconfig.hashPassword(data.getPassword()));
         user.setPassword(data.getPassword());
         user.setMobileNumber(data.getMobileNumber());
         user.setUsername(data.getUsername());

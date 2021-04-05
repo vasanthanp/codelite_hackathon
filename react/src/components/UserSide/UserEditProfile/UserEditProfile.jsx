@@ -5,6 +5,7 @@ import "./UserEditProfile.css";
 import style from "./UserEditProfile.module.css";
 import config from "../../../Services/config";
 import helperService from "../../../Services/helperService";
+import { confirmAlert } from "react-confirm-alert";
 const UserEditProfile = () => {
   const history = useHistory();
   const [user, setUser] = useState(config.userSignupObj);
@@ -17,11 +18,44 @@ const UserEditProfile = () => {
       settingUser();
     }
   }, [first]);
+  let validation = () => {
+    let t = user;
+    if (
+      t.age === "" ||
+      t.email === "" ||
+      t.mobileNumber === "" ||
+      t.password === "" ||
+      t.username === ""
+    ) {
+      throw "Please enter all the field";
+    }
+    if (
+      !t.email.includes("@gmail.com") ||
+      t.email.replace("@gmail.com", "") === ""
+    )
+      throw "Enter valid email id ";
+    if (t.password.length < 8) throw "Enter minimum 8 character for password";
+    if (t.mobileNumber.length < 10 || t.mobileNumber.length > 10)
+      throw "Invalid mobile number";
+    if (t.mobileNumber.length < 3)
+      throw "Enter minimum 3 character for mobileNumber";
+    if (t.username.length < 3) throw "Enter minimum 3 character for username";
+    if (t.age.length == 0) throw "Invalid age";
+  };
 
   const editUserProfile = async (e) => {
     e.preventDefault();
-    const response = await helperService.updateUserWithId(user);
-    if (response.data !== "") history.push("/user/profile");
+    try {
+      validation();
+      const response = await helperService.updateUserWithId(user);
+      if (response.data !== "") history.push("/user/profile");
+    } catch (err) {
+      let e = "" + err;
+      confirmAlert({
+        message: e,
+        buttons: [{ label: "close" }],
+      });
+    }
   };
   return (
     <>
@@ -77,7 +111,6 @@ const UserEditProfile = () => {
                 className="form-control col-11 mt-0 mb-3 py-3 px-4 text-dark"
                 name="userPassword"
                 id="userPassword"
-                value={user.password}
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
               <p className={`px-4 align-self-start ${style.inputLabel}`}>Age</p>

@@ -53,7 +53,15 @@ export default function AdminDashboard() {
             {bikelist.map((bike) => {
               return (
                 <div className="container" id="align1" key={bike.id}>
-                  <span id="status">Booked</span>
+                  {bike.status === "true" ? (
+                    <span id="status" className="bg-danger">
+                      Booked
+                    </span>
+                  ) : (
+                    <span id="status" className="bg-success">
+                      Available
+                    </span>
+                  )}
                   <div className="row">
                     <div className="col-lg-12" id="colors">
                       <div className="col-lg-12">
