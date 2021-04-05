@@ -79,7 +79,7 @@ export default function BikeDetails(props) {
             <button
               disabled={bike.status === "true" ? true : false}
               type="button"
-              class="btn btn-lg btn-success user-book-btn "
+              className="btn btn-lg btn-success user-book-btn "
               onClick={bookeBike}
             >
               Book the Bike
