@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://8080-cbdcacdaabeeaebfeedaeaffecacedcaeb.examlyiopb.examly.io/";
+// const baseURL = "https://8080-cbdcacdaabeeaebfeedaeaffecacedcaeb.examlyiopb.examly.io/";
+const baseURL = "http://localhost:8080/";
 const apiService = {
   superlogin: (val) => {
     return axios
@@ -41,9 +42,7 @@ const apiService = {
     axios.put(`${baseURL}bike/edit`, val).then((res) => {});
   },
   DeletBike: (id) => {
-    return axios
-      .post(`${baseURL}bike/delete`, { id })
-      .then((res) => {});
+    return axios.post(`${baseURL}bike/delete`, { id }).then((res) => {});
   },
   getAdminProfile: (email) => {
     return axios
@@ -51,9 +50,7 @@ const apiService = {
       .then((res) => res.data);
   },
   adminEditProfile: (val) => {
-    return axios
-      .put(`${baseURL}admin/edit`, val)
-      .then((res) => res.data);
+    return axios.put(`${baseURL}admin/edit`, val).then((res) => res.data);
   },
   getAdminBikes: (id) => {
     return axios
@@ -92,12 +89,10 @@ const apiService = {
   },
   userDetailsWithEmail: () => {
     const email = localStorage.getItem("email");
-    return axios
-      .post(`${baseURL}user/profile`, { email })
-      .then((res) => {
-        localStorage.setItem("userID", res.data.id);
-        return res.data;
-      });
+    return axios.post(`${baseURL}user/profile`, { email }).then((res) => {
+      localStorage.setItem("userID", res.data.id);
+      return res.data;
+    });
   },
   updateUserWithId: (user) => {
     return axios.put(`${baseURL}user/edit`, user).then((res) => {
@@ -113,14 +108,10 @@ const apiService = {
       .then((res) => res.data);
   },
   bookBike: (bikeDetail) => {
-    return axios
-      .post(`${baseURL}user/bookBike`, bikeDetail)
-      .then((res) => {});
+    return axios.post(`${baseURL}user/bookBike`, bikeDetail).then((res) => {});
   },
   getAdmins: () => {
-    return axios(`${baseURL}super/dashboard`).then(
-      (res) => res.data
-    );
+    return axios(`${baseURL}super/dashboard`).then((res) => res.data);
   },
   deleteAdmin: (adminId) => {
     return axios
@@ -128,9 +119,7 @@ const apiService = {
       .then((res) => res.data);
   },
   getAllBookings: () => {
-    return axios(`${baseURL}super/allBookings`).then(
-      (res) => res.data
-    );
+    return axios(`${baseURL}super/allBookings`).then((res) => res.data);
   },
 };
 export default apiService;

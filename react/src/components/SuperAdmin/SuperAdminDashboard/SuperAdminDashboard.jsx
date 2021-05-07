@@ -3,7 +3,7 @@ import helperService from "../../../Services/helperService";
 import SuperAdminNavbar from "../SuperAdminNavbar/SuperAdminNavbar";
 import "./SuperAdminDashboard.css";
 const SuperAdminDashboard = () => {
-  const [admins, setAdmins] = useState([1, 2, 3]);
+  const [admins, setAdmins] = useState([]);
   const getAdmins = async () => {
     setAdmins(await helperService.getAdmins());
   };
